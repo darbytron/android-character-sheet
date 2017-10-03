@@ -1,13 +1,15 @@
-package com.tylerdarby.charactersheet;
+package com.tylerdarby.charactersheet.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import com.tylerdarby.charactersheet.R;
+
+public class DiceRoller extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_dice_roller);
     }
 }
