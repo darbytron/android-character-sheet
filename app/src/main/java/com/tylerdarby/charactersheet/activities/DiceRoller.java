@@ -64,7 +64,7 @@ public class DiceRoller extends AppCompatActivity implements OnClickListener {
                     int random = (int)(Math.random() * diceSidesInt + 1);
                     total += random;
                     int diceNumber = i + 1;
-                    rolledValues += " Dice " + diceNumber + ": " + random;
+                    rolledValues += " Dice " + diceNumber + ": " + random + "\n";
                 }
 
                 String stringTotal = " ";
