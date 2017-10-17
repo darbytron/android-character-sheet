@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">Character Sheet</string>
     <string name="title_activity_character_creation">CharacterCreation</string>
+
+    <string name="text_favorites">Favorites</string>
+    <string name="text_home">Home</string>
+    <string name="text_schedules">Schedules</string>
+    <string name="text_music">Music</string>
+    <string name="user_reg">User Reg.</string>
+    <string name="reserved">Resv.</string>
+    <string name="dice">Dice</string>
+    <string name="character_creation">New Char.</string>
 </resources>
