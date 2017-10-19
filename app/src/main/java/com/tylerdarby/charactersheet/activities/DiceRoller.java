@@ -1,5 +1,8 @@
 package com.tylerdarby.charactersheet.activities;
 
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,8 +13,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.tylerdarby.charactersheet.R;
-
-import org.w3c.dom.Text;
+import com.tylerdarby.charactersheet.utils.ShakeDetector;
 
 public class DiceRoller extends AppCompatActivity implements OnClickListener {
 
@@ -21,6 +23,11 @@ public class DiceRoller extends AppCompatActivity implements OnClickListener {
     private Button calculateButton;
     private TextView displayValueLabel;
     private TextView displayTotalLabel;
+
+    // The following are used for the shake detection
+    private SensorManager mSensorManager;
+    private Sensor mAccelerometer;
+    private ShakeDetector mShakeDetector;
 
 
     @Override
@@ -52,33 +59,69 @@ public class DiceRoller extends AppCompatActivity implements OnClickListener {
             @Override
             public void onClick(View view) {
 
-                String diceRolls = (String) diceSpinner.getSelectedItem();
-                String diceSides = (String) sideSpinner.getSelectedItem();
-                String rolledValues = "";
-                int total = 0;
+                diceRoll();
 
-                int diceRollsInt = Integer.parseInt(diceRolls);
-                int diceSidesInt = Integer.parseInt(diceSides);
+            }
+        });
 
-                for (int i = 0; i < diceRollsInt; i ++) {
-                    int random = (int)(Math.random() * diceSidesInt + 1);
-                    total += random;
-                    int diceNumber = i + 1;
-                    rolledValues += " Dice " + diceNumber + ": " + random + "\n";
-                }
+        // ShakeDetector initialization
+        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+        mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        mShakeDetector = new ShakeDetector();
+        
+        mShakeDetector.setOnShakeListener(new ShakeDetector.OnShakeListener() {
 
-                String stringTotal = " ";
-                stringTotal += total;
+            @Override
+            public void onShake(int count) {
 
-                displayValueLabel.setText(rolledValues);
-                displayTotalLabel.setText(stringTotal);
+                diceRoll();
 
             }
         });
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        // Add the following line to register the Session Manager Listener onResume
+        mSensorManager.registerListener(mShakeDetector, mAccelerometer,	SensorManager.SENSOR_DELAY_UI);
+    }
+
+    @Override
+    public void onPause() {
+        // Add the following line to unregister the Sensor Manager onPause
+        mSensorManager.unregisterListener(mShakeDetector);
+        super.onPause();
+    }
+
+    @Override
     public void onClick(View view) {
+
+    }
+
+    // Method for rolling the dice
+    public void diceRoll() {
+
+        String diceRolls = (String) diceSpinner.getSelectedItem();
+        String diceSides = (String) sideSpinner.getSelectedItem();
+        String rolledValues = "";
+        int total = 0;
+
+        int diceRollsInt = Integer.parseInt(diceRolls);
+        int diceSidesInt = Integer.parseInt(diceSides);
+
+        for (int i = 0; i < diceRollsInt; i ++) {
+            int random = (int)(Math.random() * diceSidesInt + 1);
+            total += random;
+            int diceNumber = i + 1;
+            rolledValues += " Die " + diceNumber + ": " + random + "\n";
+        }
+
+        String stringTotal = " ";
+        stringTotal += total;
+
+        displayValueLabel.setText(rolledValues);
+        displayTotalLabel.setText(stringTotal);
 
     }
 }
