@@ -1,16 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.tylerdarby.charactersheet.activities.DiceRoller">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Dice" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/diceNumberLabel"
+                    android:text="@string/numberOfDice"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/textSize"
+                    android:layout_marginBottom="@dimen/bottomPadding"/>
+
+                <Spinner
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/diceSpinner"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/textSize"
+                    android:layout_marginBottom="@dimen/bottomPadding" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/diceNValueLabel"
+                    android:text="@string/diceValue"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/textSize"
+                    android:layout_marginBottom="@dimen/bottomPadding"/>
+
+                <Spinner
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sideSpinner"
+                    android:layout_weight="1"
+                    android:textSize="@dimen/textSize"
+                    android:layout_marginBottom="@dimen/bottomPadding"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/calculateButton"
+                    android:text="@string/calculate"
+                    android:gravity="center"
+                    android:textSize="@dimen/textSize"
+                    android:layout_marginBottom="@dimen/bottomPadding"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/diceRollLabel"
+                    android:text="@string/diceRollLabel"
+                    android:textSize="@dimen/textSize"
+                    android:layout_marginBottom="@dimen/bottomPadding"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/displayValueLabel"
+                    android:text="@string/displayValue"
+                    android:layout_weight="2"
+                    android:textSize="@dimen/textSize"
+                    android:layout_marginBottom="@dimen/bottomPadding"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/diceTotalLabel"
+                    android:text="@string/diceTotalLabel"
+                    android:textSize="@dimen/textSize"
+                    android:layout_marginBottom="@dimen/bottomPadding"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/displayTotalLabel"
+                    android:text="@string/totalValue"
+                    android:layout_weight="2"
+                    android:textSize="@dimen/textSize"
+                    android:layout_marginBottom="@dimen/bottomPadding"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -21,5 +145,6 @@
         app:itemIconTint="@drawable/nav_item_color_state"
         app:itemTextColor="@drawable/nav_item_color_state"
         app:menu="@menu/bottom_navigation_main" />
+
 
 </RelativeLayout>

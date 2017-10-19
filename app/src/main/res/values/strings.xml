@@ -12,4 +12,29 @@
     <string name="character_creation">New Char.</string>
     <string name="enter_username">Enter Username</string>
     <string name="register">Register</string>
+    <string name="numberOfDice">Number of Dice: </string>
+    <string name="diceValue">Number of Sides</string>
+    <string name="calculate">Roll the dice!</string>
+    <string name="displayValue" />
+    <string name="diceRollLabel">Your rolls:</string>
+    <string name="diceTotalLabel">Total of Dice:</string>
+    <string name="totalValue" />
+
+    <string-array name="diceArray">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="sideArray">
+        <item>2</item>
+        <item>4</item>
+        <item>6</item>
+        <item>8</item>
+        <item>10</item>
+        <item>12</item>
+        <item>20</item>
+        <item>100</item>
+    </string-array>
 </resources>
