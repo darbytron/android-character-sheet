@@ -10,4 +10,6 @@
     <string name="reserved">Resv.</string>
     <string name="dice">Dice</string>
     <string name="character_creation">New Char.</string>
+    <string name="enter_username">Enter Username</string>
+    <string name="register">Register</string>
 </resources>
