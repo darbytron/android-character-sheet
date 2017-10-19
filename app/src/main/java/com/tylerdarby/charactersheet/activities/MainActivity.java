@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.tylerdarby.charactersheet.R;
+import com.tylerdarby.charactersheet.helpers.BottomNavigationViewHelper;
 import com.tylerdarby.charactersheet.models.Character;
 
 import java.lang.reflect.Field;
@@ -39,7 +40,8 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView)
                 findViewById(R.id.bottom_navigation);
-        BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
+        BottomNavigationViewHelper viewHelper = new BottomNavigationViewHelper();
+        viewHelper.disableShiftMode(bottomNavigationView);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -69,28 +71,5 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-    }
-    public static class BottomNavigationViewHelper {
-        public static void disableShiftMode(BottomNavigationView view) {
-            BottomNavigationMenuView menuView = (BottomNavigationMenuView) view.getChildAt(0);
-            try {
-                Field shiftingMode = menuView.getClass().getDeclaredField("mShiftingMode");
-                shiftingMode.setAccessible(true);
-                shiftingMode.setBoolean(menuView, false);
-                shiftingMode.setAccessible(false);
-                for (int i = 0; i < menuView.getChildCount(); i++) {
-                    BottomNavigationItemView item = (BottomNavigationItemView) menuView.getChildAt(i);
-                    //noinspection RestrictedApi
-                    item.setShiftingMode(false);
-                    // set once again checked value, so view will be updated
-                    //noinspection RestrictedApi
-                    item.setChecked(item.getItemData().isChecked());
-                }
-            } catch (NoSuchFieldException e) {
-                Log.e("BNVHelper", "Unable to get shift mode field", e);
-            } catch (IllegalAccessException e) {
-                Log.e("BNVHelper", "Unable to change value of shift mode", e);
-            }
-        }
     }
 }
