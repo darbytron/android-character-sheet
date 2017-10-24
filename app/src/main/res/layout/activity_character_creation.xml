@@ -1,9 +1,466 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.tylerdarby.charactersheet.activities.CharacterCreation">
+    tools:context="com.tylerdarby.charactersheet.activities.CharacterCreation"
+    android:layout_margin="16dp">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/characterInformationLabel"
+            android:text="@string/characterInfo"
+            android:textSize="@dimen/titleTextSize"
+            android:background="@drawable/bottom_border"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/characterNameLabel"
+                android:text="@string/characterName"
+                android:textSize="@dimen/informationTextSize"
+                android:layout_marginTop="@dimen/topPadding"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/characterNameView"
+                android:text="@string/defaultDataString"
+                android:textSize="@dimen/informationTextSize"
+                android:layout_marginTop="@dimen/topPadding"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/characterRaceLabel"
+                android:text="@string/characterRace"
+                android:textSize="@dimen/informationTextSize"
+                android:layout_marginTop="@dimen/topPadding"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/characterRaceView"
+                android:text="@string/defaultDataString"
+                android:textSize="@dimen/informationTextSize"
+                android:layout_marginTop="@dimen/topPadding"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/characterBackgroundLabel"
+                android:text="@string/characterBackground"
+                android:textSize="@dimen/informationTextSize"
+                android:layout_marginTop="@dimen/topPadding"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/characterBackgroundView"
+                android:text="@string/defaultDataString"
+                android:textSize="@dimen/informationTextSize"
+                android:layout_marginTop="@dimen/topPadding"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/characterLevelLabel"
+                android:text="@string/characterLevel"
+                android:textSize="@dimen/informationTextSize"
+                android:layout_marginTop="@dimen/topPadding"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/characterLevelView"
+                android:text="@string/defaultDataString"
+                android:textSize="@dimen/informationTextSize"
+                android:layout_marginTop="@dimen/topPadding"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/characterExperienceLabel"
+                android:text="@string/characterExperience"
+                android:textSize="@dimen/informationTextSize"
+                android:layout_marginTop="@dimen/topPadding"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/characterExperienceView"
+                android:text="@string/defaultDataString"
+                android:textSize="@dimen/informationTextSize"
+                android:layout_marginTop="@dimen/topPadding"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/characterClassLabel"
+                android:text="@string/characterClass"
+                android:textSize="@dimen/informationTextSize"
+                android:layout_marginTop="@dimen/topPadding"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/characterClassView"
+                android:text="@string/defaultDataString"
+                android:textSize="@dimen/informationTextSize"
+                android:layout_marginTop="@dimen/topPadding"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/characterAlignmentLabel"
+                android:text="@string/characterAlignment"
+                android:textSize="@dimen/informationTextSize"
+                android:layout_marginTop="@dimen/topPadding"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/characterAlignmentView"
+                android:text="@string/defaultDataString"
+                android:textSize="@dimen/informationTextSize"
+                android:layout_marginTop="@dimen/topPadding"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/characterStatsMainLabel"
+            android:text="@string/characterStatsMain"
+            android:textSize="@dimen/titleTextSize"
+            android:background="@drawable/bottom_border"
+            android:paddingTop="@dimen/topPadding"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/characterStrengthLabel"
+                android:text="@string/characterStrength"
+                android:textSize="@dimen/informationTextSize"
+                android:layout_marginTop="@dimen/topPadding"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/characterStrengthView"
+                android:text="@string/defaultDataString"
+                android:textSize="@dimen/informationTextSize"
+                android:layout_marginTop="@dimen/topPadding"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/characterConstitutionLabel"
+                android:text="@string/characterConstitution"
+                android:textSize="@dimen/informationTextSize"
+                android:layout_marginTop="@dimen/topPadding"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/characterConstitutionView"
+                android:text="@string/defaultDataString"
+                android:textSize="@dimen/informationTextSize"
+                android:layout_marginTop="@dimen/topPadding"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/characterDexterityLabel"
+                android:text="@string/characterDexterity"
+                android:textSize="@dimen/informationTextSize"
+                android:layout_marginTop="@dimen/topPadding"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/characterDexterityView"
+                android:text="@string/defaultDataString"
+                android:textSize="@dimen/informationTextSize"
+                android:layout_marginTop="@dimen/topPadding"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/characterIntelligenceLabel"
+                android:text="@string/characterIntelligence"
+                android:textSize="@dimen/informationTextSize"
+                android:layout_marginTop="@dimen/topPadding"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/characterIntelligenceView"
+                android:text="@string/defaultDataString"
+                android:textSize="@dimen/informationTextSize"
+                android:layout_marginTop="@dimen/topPadding"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/characterWisdomLabel"
+                android:text="@string/characterWisdom"
+                android:textSize="@dimen/informationTextSize"
+                android:layout_marginTop="@dimen/topPadding"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/characterWisdomView"
+                android:text="@string/defaultDataString"
+                android:textSize="@dimen/informationTextSize"
+                android:layout_marginTop="@dimen/topPadding"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/characterCharismaLabel"
+                android:text="@string/characterCharisma"
+                android:textSize="@dimen/informationTextSize"
+                android:layout_marginTop="@dimen/topPadding"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/characterCharismaView"
+                android:text="@string/defaultDataString"
+                android:textSize="@dimen/informationTextSize"
+                android:layout_marginTop="@dimen/topPadding"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/characterStatsSubLabel"
+            android:text="@string/characterStatsSub"
+            android:textSize="@dimen/titleTextSize"
+            android:background="@drawable/bottom_border"
+            android:paddingTop="@dimen/topPadding"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/characterArmorClassLabel"
+                android:text="@string/characterArmorClass"
+                android:textSize="@dimen/informationTextSize"
+                android:layout_marginTop="@dimen/topPadding"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/characterArmorClassView"
+                android:text="@string/defaultDataString"
+                android:textSize="@dimen/informationTextSize"
+                android:layout_marginTop="@dimen/topPadding"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/characterSpeedLabel"
+                android:text="@string/characterSpeed"
+                android:textSize="@dimen/informationTextSize"
+                android:layout_marginTop="@dimen/topPadding"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/characterSpeedView"
+                android:text="@string/defaultDataString"
+                android:textSize="@dimen/informationTextSize"
+                android:layout_marginTop="@dimen/topPadding"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/characterInitiativeLabel"
+                android:text="@string/characterInitiative"
+                android:textSize="@dimen/informationTextSize"
+                android:layout_marginTop="@dimen/topPadding"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/characterInitiativeView"
+                android:text="@string/defaultDataString"
+                android:textSize="@dimen/informationTextSize"
+                android:layout_marginTop="@dimen/topPadding"
+                android:layout_weight="1"/>
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/characterVisionLabel"
+                android:text="@string/characterVision"
+                android:textSize="@dimen/informationTextSize"
+                android:layout_marginTop="@dimen/topPadding"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/characterVisionView"
+                android:text="@string/defaultDataString"
+                android:textSize="@dimen/informationTextSize"
+                android:layout_marginTop="@dimen/topPadding"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/characterFeatsStrengthsLabel"
+            android:text="@string/characterFeatsTraits"
+            android:textSize="@dimen/titleTextSize"
+            android:background="@drawable/bottom_border"
+            android:paddingTop="@dimen/topPadding"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/characterProficienciesLabel"
+            android:text="@string/characterProficiencies"
+            android:textSize="@dimen/titleTextSize"
+            android:background="@drawable/bottom_border"
+            android:paddingTop="@dimen/topPadding"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/characterSpellsLabel"
+            android:text="@string/characterSpells"
+            android:textSize="@dimen/titleTextSize"
+            android:background="@drawable/bottom_border"
+            android:paddingTop="@dimen/topPadding"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/characterInventoaryLabel"
+            android:text="@string/characterInventory"
+            android:textSize="@dimen/titleTextSize"
+            android:background="@drawable/bottom_border"
+            android:paddingTop="@dimen/topPadding"
+            />
+
+    </LinearLayout>
+
+</ScrollView>

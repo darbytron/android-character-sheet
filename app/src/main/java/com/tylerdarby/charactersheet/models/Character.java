@@ -100,8 +100,13 @@ public class Character {
         return stats;
     }
 
-    public void setStats(Stats stats) {
-        this.stats = stats;
+    public void setStats(int wisdom, int intelligence, int strength, int constitution, int dexterity, int charisma) {
+        this.stats.setWisdom(wisdom);
+        this.stats.setIntelligence(intelligence);
+        this.stats.setStrength(strength);
+        this.stats.setConstitution(constitution);
+        this.stats.setDexterity(dexterity);
+        this.stats.setCharisma(charisma);
     }
 
     public String getAlignment() {
