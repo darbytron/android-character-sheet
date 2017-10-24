@@ -2,23 +2,15 @@ package com.tylerdarby.charactersheet.activities;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.design.internal.BottomNavigationItemView;
-import android.support.design.internal.BottomNavigationMenuView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.design.widget.BottomNavigationView;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.tylerdarby.charactersheet.R;
 import com.tylerdarby.charactersheet.helpers.BottomNavigationViewHelper;
-import com.tylerdarby.charactersheet.models.Character;
-
-import java.lang.reflect.Field;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -37,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 //        DatabaseReference myRef = database.getReference("message1");
 //
 //        myRef.setValue("Hello, World!");
+
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView)
                 findViewById(R.id.bottom_navigation);
@@ -65,11 +58,19 @@ public class MainActivity extends AppCompatActivity {
                                 startActivity(userReg);
                                 break;
                             case R.id.action_reserved:
+                                Intent i = new Intent(MainActivity.this, Test.class);
+                                startActivity(i);
                                 break;
                         }
                         return false;
                     }
                 });
 
+    }
+
+
+    public void newAct(View view){
+        Intent i = new Intent(MainActivity.this, Test.class);
+        startActivity(i);
     }
 }

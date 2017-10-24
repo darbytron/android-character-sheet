@@ -11,6 +11,11 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="Main"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnNewActivity"
+        android:onClick="newAct"/>
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/bottom_navigation"
