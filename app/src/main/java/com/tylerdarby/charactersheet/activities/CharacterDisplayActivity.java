@@ -5,25 +5,50 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.TextView;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.tylerdarby.charactersheet.R;
+import com.tylerdarby.charactersheet.models.Character;
 import com.tylerdarby.charactersheet.helpers.BottomNavigationViewHelper;
-import com.tylerdarby.charactersheet.models.User;
 
-public class UserRegistration extends AppCompatActivity {
-    private EditText usernameText;
-    private Button registerButton;
+public class CharacterDisplayActivity extends AppCompatActivity {
+
+    private TextView characterNameView;
+    private TextView characterRaceView;
+    private TextView characterClassView;
+    private TextView characterExperienceView;
+    private TextView characteBackgroundView;
+    private TextView characterAlignmentView;
+    private TextView characterLevelView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_registration);
+        setContentView(R.layout.activity_character_display);
+
+        Character character = new Character();
+
+        character.setName("Faelina Lunala");
+        character.setLevel(60);
+        character.setBackground("Keeper of the Moon");
+        character.setAlignment("Lawful Good");
+        character.setExperiencePoints("0/4,000,000");
+        character.setRace("Miqo'te");
+        character.setCharacterClass("Paladin");
+        character.setStats(10, 10, 10, 10, 10, 10);
+
+        characterNameView = (TextView) findViewById(R.id.characterNameView);
+        characterRaceView = (TextView) findViewById(R.id.characterRaceView);
+        characterClassView = (TextView) findViewById(R.id.characterClassView);
+        characterExperienceView = (TextView) findViewById(R.id.characterExperienceView);
+        characteBackgroundView = (TextView) findViewById(R.id.characterBackgroundView);
+        characterAlignmentView = (TextView) findViewById(R.id.characterAlignmentView);
+        characterLevelView = (TextView) findViewById(R.id.characterLevelView);
+
+        characterLevelView.setText("" + character.getLevel());
+
+
         BottomNavigationView bottomNavigationView = (BottomNavigationView)
                 findViewById(R.id.bottom_navigation);
         BottomNavigationViewHelper viewHelper = new BottomNavigationViewHelper();
@@ -57,29 +82,5 @@ public class UserRegistration extends AppCompatActivity {
                     }
                 });
 
-        usernameText = (EditText) findViewById(R.id.usernameField);
-        registerButton = (Button) findViewById(R.id.registerButton);
-
-        registerButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                registerUser();
-            }
-        });
     }
-
-    public void registerUser() {
-        final FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference ref = database.getReference("users");
-        String username = usernameText.getText().toString();
-        if(!username.isEmpty() && isUsernameUnique()) {
-            User user = new User(username);
-            ref.child(username).setValue(user);
-        } else {
-            //TODO: Throw error
-        }
-
-    }
-
-    public boolean isUsernameUnique(){ return true;}
 }

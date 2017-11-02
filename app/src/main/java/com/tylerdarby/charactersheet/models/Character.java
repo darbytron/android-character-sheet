@@ -1,5 +1,6 @@
 package com.tylerdarby.charactersheet.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,6 +32,12 @@ public class Character {
     private List<Spell> spells;
     private int vision;
     private String notes;
+
+    public Character() {
+        stats = new Stats();
+        inventory = new ArrayList<>();
+        spells = new ArrayList<>();
+    }
 
     public String getId() {
         return id;
