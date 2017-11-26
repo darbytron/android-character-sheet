@@ -1,33 +1,36 @@
 package com.tylerdarby.charactersheet.activities;
 
+import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
-import android.support.design.widget.BottomNavigationView;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
-
+import com.google.firebase.database.FirebaseDatabase;
 import com.tylerdarby.charactersheet.R;
 import com.tylerdarby.charactersheet.helpers.BottomNavigationViewHelper;
+import com.tylerdarby.charactersheet.utils.AppConstants;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView textFavorites;
-    private TextView textSchedules;
-    private TextView textMusic;
+    private final FirebaseDatabase db = FirebaseDatabase.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        SharedPreferences preferences = getSharedPreferences(AppConstants.SHARED_PREF_KEY, Context.MODE_PRIVATE);
+        String username = preferences.getString(AppConstants.USERNAME_KEY, "");
+        if(username.isEmpty()) {
+            //TODO: Navigate to user registration;
+        }
+        TextView usernameView = (TextView) findViewById(R.id.usernameLabel);
+        usernameView.setText(username);
 
-        //Sample Firebase code for syncing data, please don't delete.
-//        FirebaseDatabase database = FirebaseDatabase.getInstance();
-//        DatabaseReference myRef = database.getReference("message1");
-//
-//        myRef.setValue("Hello, World!");
 
         BottomNavigationView bottomNavigationView = (BottomNavigationView)
                 findViewById(R.id.bottom_navigation);

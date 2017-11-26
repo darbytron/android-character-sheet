@@ -1,23 +1,25 @@
 package com.tylerdarby.charactersheet.models;
 
+import java.util.ArrayList;
+
 /**
  * Created by tdarby on 10/2/17.
  */
 
 public class User {
-    private Character character;
+    private ArrayList<Character> characters;
     private String username;
 
     public User(String username) {
         this.username = username;
     }
 
-    public Character getCharacter() {
-        return character;
+    public ArrayList<Character> getCharacters() {
+        return characters;
     }
 
-    public void setCharacter(Character character) {
-        this.character = character;
+    public void setCharacter(ArrayList<Character> characters) {
+        this.characters = characters;
     }
 
     public String getUsername() {
@@ -26,5 +28,13 @@ public class User {
 
     public void setUsername(String userName) {
         this.username = userName;
+    }
+
+    public void addCharacter(Character character) {
+        if(characters == null) {
+            characters = new ArrayList<>();
+        }
+        //TODO: Maybe check firebase to verify character exists before pushing to list.
+        characters.add(character);
     }
 }
