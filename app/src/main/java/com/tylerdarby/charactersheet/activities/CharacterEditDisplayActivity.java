@@ -1,29 +1,29 @@
 package com.tylerdarby.charactersheet.activities;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.view.MenuItem;
 
 import com.tylerdarby.charactersheet.R;
-import com.tylerdarby.charactersheet.models.Character;
 import com.tylerdarby.charactersheet.helpers.BottomNavigationViewHelper;
+import com.tylerdarby.charactersheet.models.Character;
 
-public class CharacterDisplayActivity extends AppCompatActivity {
+public class CharacterEditDisplayActivity extends AppCompatActivity {
 
     // Declare the fields
-    private TextView characterNameView;
-    private TextView characterRaceView;
-    private TextView characterClassView;
-    private TextView characterExperienceView;
-    private TextView characterBackgroundView;
-    private TextView characterAlignmentView;
-    private TextView characterLevelView;
+    private EditText characterNameEditText;
+    private EditText characterRaceEditText;
+    private EditText characterClassEditText;
+    private EditText characterExperienceEditText;
+    private EditText characterBackgroundEditText;
+    private EditText characterAlignmentEditText;
+    private EditText characterLevelEditText;
     private TextView characterFeatsStrengthsLabel;
     private TextView characterSpellsLabel;
 
@@ -46,30 +46,30 @@ public class CharacterDisplayActivity extends AppCompatActivity {
         character.setStats(10, 10, 10, 10, 10, 10);
 
         // Initialize the views
-        characterNameView = (TextView) findViewById(R.id.characterNameView);
-        characterRaceView = (TextView) findViewById(R.id.characterRaceView);
-        characterClassView = (TextView) findViewById(R.id.characterClassView);
-        characterExperienceView = (TextView) findViewById(R.id.characterExperienceView);
-        characterBackgroundView = (TextView) findViewById(R.id.characterBackgroundView);
-        characterAlignmentView = (TextView) findViewById(R.id.characterAlignmentView);
-        characterLevelView = (TextView) findViewById(R.id.characterLevelView);
+        characterNameEditText = (EditText) findViewById(R.id.characterNameEditText);
+        characterRaceEditText = (EditText) findViewById(R.id.characterRaceEditText);
+        characterClassEditText = (EditText) findViewById(R.id.characterClassEditText);
+        characterExperienceEditText = (EditText) findViewById(R.id.characterExperienceEditText);
+        characterBackgroundEditText = (EditText) findViewById(R.id.characterBackgroundEditText);
+        characterAlignmentEditText = (EditText) findViewById(R.id.characterAlignmentEditText);
+        characterLevelEditText = (EditText) findViewById(R.id.characterLevelEditText);
         characterFeatsStrengthsLabel = (TextView) findViewById(R.id.characterFeatsStrengthsLabel);
         characterSpellsLabel = (TextView) findViewById(R.id.characterSpellsLabel);
 
         // Populate the views
-        characterNameView.setText(" " + character.getName());
-        characterRaceView.setText(" " + character.getRace());
-        characterClassView.setText(" " + character.getCharacterClass());
-        characterExperienceView.setText(" " + character.getExperiencePoints());
-        characterBackgroundView.setText(" " + character.getBackground());
-        characterAlignmentView.setText(" " + character.getAlignment());
-        characterLevelView.setText(" " + character.getLevel());
+        characterNameEditText.setText(" " + character.getName());
+        characterRaceEditText.setText(" " + character.getRace());
+        characterClassEditText.setText(" " + character.getClass());
+        characterExperienceEditText.setText(" " + character.getExperiencePoints());
+        characterBackgroundEditText.setText(" " + character.getBackground());
 
+        characterLevelEditText.setText(" " + character.getLevel());
 
+        // Set up the listeners
         characterFeatsStrengthsLabel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CharacterDisplayActivity.this, FeatsAndStrengths.class);
+                Intent intent = new Intent(CharacterEditDisplayActivity.this, FeatsAndStrengths.class);
                 startActivity(intent);
             }
         });
@@ -77,7 +77,7 @@ public class CharacterDisplayActivity extends AppCompatActivity {
         characterSpellsLabel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CharacterDisplayActivity.this, Spells.class);
+                Intent intent = new Intent(CharacterEditDisplayActivity.this, Spells.class);
                 startActivity(intent);
             }
         });
@@ -94,7 +94,7 @@ public class CharacterDisplayActivity extends AppCompatActivity {
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         switch (item.getItemId()) {
                             case R.id.action_new_char:
-                                Intent charCreation = new Intent(getApplicationContext(), CharacterDisplayActivity.class);
+                                Intent charCreation = new Intent(getApplicationContext(), CharacterEditDisplayActivity.class);
                                 startActivity(charCreation);
                                 break;
                             case R.id.action_dice:

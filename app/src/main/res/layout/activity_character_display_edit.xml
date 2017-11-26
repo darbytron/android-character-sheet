@@ -38,10 +38,10 @@
                 android:textSize="@dimen/informationTextSize"
                 android:layout_marginTop="@dimen/topPadding"/>
 
-            <TextView
+            <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/characterNameView"
+                android:id="@+id/characterNameEditText"
                 android:text="@string/defaultDataString"
                 android:textSize="@dimen/informationTextSize"
                 android:layout_marginTop="@dimen/topPadding"/>
@@ -61,10 +61,10 @@
                 android:textSize="@dimen/informationTextSize"
                 android:layout_marginTop="@dimen/topPadding"/>
 
-            <TextView
+            <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/characterRaceView"
+                android:id="@+id/characterRaceEditText"
                 android:text="@string/defaultDataString"
                 android:textSize="@dimen/informationTextSize"
                 android:layout_marginTop="@dimen/topPadding"/>
@@ -84,10 +84,10 @@
                 android:textSize="@dimen/informationTextSize"
                 android:layout_marginTop="@dimen/topPadding"/>
 
-            <TextView
+            <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/characterBackgroundView"
+                android:id="@+id/characterBackgroundEditText"
                 android:text="@string/defaultDataString"
                 android:textSize="@dimen/informationTextSize"
                 android:layout_marginTop="@dimen/topPadding"/>
@@ -107,10 +107,10 @@
                 android:textSize="@dimen/informationTextSize"
                 android:layout_marginTop="@dimen/topPadding"/>
 
-            <TextView
+            <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/characterLevelView"
+                android:id="@+id/characterLevelEditText"
                 android:text="@string/defaultDataString"
                 android:textSize="@dimen/informationTextSize"
                 android:layout_marginTop="@dimen/topPadding"/>
@@ -130,10 +130,10 @@
                 android:textSize="@dimen/informationTextSize"
                 android:layout_marginTop="@dimen/topPadding"/>
 
-            <TextView
+            <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/characterExperienceView"
+                android:id="@+id/characterExperienceEditText"
                 android:text="@string/defaultDataString"
                 android:textSize="@dimen/informationTextSize"
                 android:layout_marginTop="@dimen/topPadding"/>
@@ -153,10 +153,10 @@
                 android:textSize="@dimen/informationTextSize"
                 android:layout_marginTop="@dimen/topPadding"/>
 
-            <TextView
+            <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/characterClassView"
+                android:id="@+id/characterClassEditText"
                 android:text="@string/defaultDataString"
                 android:textSize="@dimen/informationTextSize"
                 android:layout_marginTop="@dimen/topPadding"/>
@@ -176,10 +176,10 @@
                 android:textSize="@dimen/informationTextSize"
                 android:layout_marginTop="@dimen/topPadding"/>
 
-            <TextView
+            <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/characterAlignmentView"
+                android:id="@+id/characterAlignmentEditText"
                 android:text="@string/defaultDataString"
                 android:textSize="@dimen/informationTextSize"
                 android:layout_marginTop="@dimen/topPadding"/>
@@ -210,10 +210,10 @@
                 android:layout_marginTop="@dimen/topPadding"
                 android:layout_weight="1"/>
 
-            <TextView
+            <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/characterStrengthView"
+                android:id="@+id/characterStrengthEditText"
                 android:text="@string/defaultDataString"
                 android:textSize="@dimen/informationTextSize"
                 android:layout_marginTop="@dimen/topPadding"
@@ -228,10 +228,10 @@
                 android:layout_marginTop="@dimen/topPadding"
                 android:layout_weight="1"/>
 
-            <TextView
+            <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/characterConstitutionView"
+                android:id="@+id/characterConstitutionEditText"
                 android:text="@string/defaultDataString"
                 android:textSize="@dimen/informationTextSize"
                 android:layout_marginTop="@dimen/topPadding"
@@ -253,10 +253,10 @@
                 android:layout_marginTop="@dimen/topPadding"
                 android:layout_weight="1"/>
 
-            <TextView
+            <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/characterDexterityView"
+                android:id="@+id/characterDexterityEditText"
                 android:text="@string/defaultDataString"
                 android:textSize="@dimen/informationTextSize"
                 android:layout_marginTop="@dimen/topPadding"
@@ -271,10 +271,10 @@
                 android:layout_marginTop="@dimen/topPadding"
                 android:layout_weight="1"/>
 
-            <TextView
+            <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/characterIntelligenceView"
+                android:id="@+id/characterIntelligenceEditText"
                 android:text="@string/defaultDataString"
                 android:textSize="@dimen/informationTextSize"
                 android:layout_marginTop="@dimen/topPadding"
@@ -296,10 +296,10 @@
                 android:layout_marginTop="@dimen/topPadding"
                 android:layout_weight="1"/>
 
-            <TextView
+            <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/characterWisdomView"
+                android:id="@+id/characterWisdomEditText"
                 android:text="@string/defaultDataString"
                 android:textSize="@dimen/informationTextSize"
                 android:layout_marginTop="@dimen/topPadding"
@@ -314,10 +314,10 @@
                 android:layout_marginTop="@dimen/topPadding"
                 android:layout_weight="1"/>
 
-            <TextView
+            <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/characterCharismaView"
+                android:id="@+id/characterCharismaEditText"
                 android:text="@string/defaultDataString"
                 android:textSize="@dimen/informationTextSize"
                 android:layout_marginTop="@dimen/topPadding"
@@ -349,10 +349,10 @@
                 android:layout_marginTop="@dimen/topPadding"
                 android:layout_weight="1"/>
 
-            <TextView
+            <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/characterArmorClassView"
+                android:id="@+id/characterArmorClassEditText"
                 android:text="@string/defaultDataString"
                 android:textSize="@dimen/informationTextSize"
                 android:layout_marginTop="@dimen/topPadding"
@@ -367,10 +367,10 @@
                 android:layout_marginTop="@dimen/topPadding"
                 android:layout_weight="1"/>
 
-            <TextView
+            <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/characterSpeedView"
+                android:id="@+id/characterSpeedEditText"
                 android:text="@string/defaultDataString"
                 android:textSize="@dimen/informationTextSize"
                 android:layout_marginTop="@dimen/topPadding"
@@ -392,10 +392,10 @@
                 android:layout_marginTop="@dimen/topPadding"
                 android:layout_weight="1"/>
 
-            <TextView
+            <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/characterInitiativeView"
+                android:id="@+id/characterInitiativeEditText"
                 android:text="@string/defaultDataString"
                 android:textSize="@dimen/informationTextSize"
                 android:layout_marginTop="@dimen/topPadding"
@@ -410,10 +410,10 @@
                 android:layout_marginTop="@dimen/topPadding"
                 android:layout_weight="1"/>
 
-            <TextView
+            <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/characterVisionView"
+                android:id="@+id/characterVisionEditText"
                 android:text="@string/defaultDataString"
                 android:textSize="@dimen/informationTextSize"
                 android:layout_marginTop="@dimen/topPadding"
