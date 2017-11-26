@@ -9,17 +9,18 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.view.*;
+import com.tylerdarby.charactersheet.models.Character;
 
 import com.tylerdarby.charactersheet.R;
 
 public class CharacterCreation extends AppCompatActivity implements View.OnClickListener{
 
     int[] stats = new int[6];
-    int[] statsMod = new int[6];
     int level,armor,hpMax,hpCurrent;
     String name,playerClass,race;
     EditText[] stringFields = new EditText[3];
     EditText[] intFields = new EditText[10];
+    Character player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +59,19 @@ public class CharacterCreation extends AppCompatActivity implements View.OnClick
                 armor = Integer.parseInt(intFields[7].getText().toString());
                 hpMax = Integer.parseInt(intFields[8].getText().toString());
                 hpCurrent = Integer.parseInt(intFields[9].getText().toString());
+                player = new Character();
+                createCharacter();
                 break;
         }
+    }
+
+    public void createCharacter(){
+        player.setStats(stats[4],stats[3],stats[0],stats[2],stats[1],stats[5]);
+        player.setArmorClass(armor);
+        player.setCharacterClass(playerClass);
+        player.setRace(race);
+        player.setLevel(level);
+        player.setName(name);
+        player.setHealth(hpMax,hpCurrent);
     }
 }

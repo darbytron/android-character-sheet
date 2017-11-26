@@ -15,13 +15,14 @@ public class Character {
     private int armorClass;
     private String characterClass;
     private String featsAndTraits;
-    private List<InventoryItem> inventory;
     private int level;
     private String name;
     private String race;
     private Stats stats;
+    private HealthPoints health;
 
     //Optional
+    private List<InventoryItem> inventory;
     private String alignment;
     private String background;
     private String experiencePoints;
@@ -37,6 +38,7 @@ public class Character {
         stats = new Stats();
         inventory = new ArrayList<>();
         spells = new ArrayList<>();
+        health = new HealthPoints();
     }
 
     public String getId() {
@@ -195,4 +197,10 @@ public class Character {
     public void setNotes(String notes) {
         this.notes = notes;
     }
+
+     public void setHealth(int max, int current){
+         this.health.setMax(max);
+         this.health.setCurrent(current);
+         this.health.setTemp(current);
+     }
 }
