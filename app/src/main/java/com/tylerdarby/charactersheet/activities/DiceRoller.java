@@ -1,6 +1,8 @@
 package com.tylerdarby.charactersheet.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.content.Context;
@@ -33,11 +35,19 @@ public class DiceRoller extends AppCompatActivity implements OnClickListener {
     private SensorManager mSensorManager;
     private Sensor mAccelerometer;
     private ShakeDetector mShakeDetector;
+    private SharedPreferences pref;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        pref = PreferenceManager.getDefaultSharedPreferences(this);
         super.onCreate(savedInstanceState);
+        if(pref.getString("themePref","").equals("Light")) {
+            setTheme(R.style.AppTheme);
+        }
+        else if(pref.getString("themePref","").equals("Dark")){
+            setTheme(R.style.AppThemeDark);
+        }
         setContentView(R.layout.activity_dice_roller);
 
         // Get widget references
@@ -112,6 +122,7 @@ public class DiceRoller extends AppCompatActivity implements OnClickListener {
                             case R.id.action_reserved:
                                 break;
                         }
+                        finish();
                         return false;
                     }
                 });

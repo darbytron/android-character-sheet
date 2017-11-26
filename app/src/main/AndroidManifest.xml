@@ -19,6 +19,7 @@
         <activity android:name=".activities.CharacterDisplayActivity" />
         <activity android:name=".activities.UserRegistration" />
         <activity android:name=".activities.DiceRoller" />
+        <activity android:name=".activities.SettingsActivity"/>
     </application>
 
 </manifest>

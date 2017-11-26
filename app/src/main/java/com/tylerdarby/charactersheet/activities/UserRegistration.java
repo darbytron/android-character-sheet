@@ -1,6 +1,8 @@
 package com.tylerdarby.charactersheet.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -19,10 +21,18 @@ import com.tylerdarby.charactersheet.models.User;
 public class UserRegistration extends AppCompatActivity {
     private EditText usernameText;
     private Button registerButton;
+    private SharedPreferences pref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        pref = PreferenceManager.getDefaultSharedPreferences(this);
         super.onCreate(savedInstanceState);
+        if(pref.getString("themePref","").equals("Light")) {
+            setTheme(R.style.AppTheme);
+        }
+        else if(pref.getString("themePref","").equals("Dark")){
+            setTheme(R.style.AppThemeDark);
+        }
         setContentView(R.layout.activity_user_registration);
         BottomNavigationView bottomNavigationView = (BottomNavigationView)
                 findViewById(R.id.bottom_navigation);
@@ -53,6 +63,7 @@ public class UserRegistration extends AppCompatActivity {
                             case R.id.action_reserved:
                                 break;
                         }
+                        finish();
                         return false;
                     }
                 });
