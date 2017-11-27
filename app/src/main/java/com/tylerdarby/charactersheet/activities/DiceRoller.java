@@ -10,6 +10,8 @@ import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.transition.Fade;
+import android.transition.Slide;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -42,6 +44,8 @@ public class DiceRoller extends AppCompatActivity implements OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dice_roller);
+        setupWindowAnimations();
+
 
         // Get widget references
         diceSpinner = (Spinner) findViewById(R.id.diceSpinner);
@@ -164,6 +168,16 @@ public class DiceRoller extends AppCompatActivity implements OnClickListener {
         displayValueLabel.setText(rolledValues);
         displayTotalLabel.setText(stringTotal);
 
+    }
+
+    private void setupWindowAnimations() {
+        Fade fade = new Fade();
+        fade.setDuration(1000);
+        getWindow().setEnterTransition(fade);
+
+        Slide slide = new Slide();
+        slide.setDuration(1000);
+        getWindow().setReturnTransition(slide);
     }
 }
 

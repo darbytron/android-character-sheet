@@ -6,6 +6,11 @@ package com.tylerdarby.charactersheet.activities;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.transition.Explode;
+import android.transition.Fade;
+import android.transition.Slide;
+import android.transition.Transition;
+import android.transition.TransitionInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -17,6 +22,8 @@ public class Test extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
+
+        setupWindowAnimations();
 
         ActionBar ab = getSupportActionBar();
         ab.setHomeButtonEnabled(true);
@@ -39,4 +46,16 @@ public class Test extends AppCompatActivity {
 //    public boolean onCreateOptionsMenu(Menu menu) {
 //        return true;
 //    }
+
+    private void setupWindowAnimations() {
+        Transition transition;
+        transition = buildEnterTransition();
+        getWindow().setEnterTransition(transition);
+    }
+
+    private Transition buildEnterTransition() {
+        Explode enterTransition = new Explode();
+        enterTransition.setDuration(500);
+        return enterTransition;
+    }
 }
