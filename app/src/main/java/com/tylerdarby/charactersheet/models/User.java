@@ -9,9 +9,14 @@ import java.util.ArrayList;
 public class User {
     private ArrayList<Character> characters;
     private String username;
+    private String firstName;
 
     public User(String username) {
         this.username = username;
+    }
+
+    public User() {
+
     }
 
     public ArrayList<Character> getCharacters() {
@@ -36,5 +41,13 @@ public class User {
         }
         //TODO: Maybe check firebase to verify character exists before pushing to list.
         characters.add(character);
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 }
