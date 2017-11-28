@@ -42,7 +42,7 @@
     <string name="characterName">Name:</string>
     <string name="characterRace">Race:</string>
     <string name="characterBackground">Background</string>
-    <string name="characterLevel">Level</string>
+    <string name="characterLevel">Level:</string>
     <string name="characterExperience">Experience:</string>
     <string name="characterClass">Class:</string>
     <string name="characterAlignment">Alignment:</string>
