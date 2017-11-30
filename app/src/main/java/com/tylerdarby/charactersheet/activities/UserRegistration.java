@@ -38,6 +38,12 @@ public class UserRegistration extends AppCompatActivity {
                 findViewById(R.id.bottom_navigation);
         BottomNavigationViewHelper viewHelper = new BottomNavigationViewHelper();
         viewHelper.disableShiftMode(bottomNavigationView);
+        if(pref.getString("themePref","").equals("Light")) {
+            bottomNavigationView.setItemBackgroundResource(R.color.colorPrimary);
+        }
+        else if(pref.getString("themePref","").equals("Dark")){
+            bottomNavigationView.setItemBackgroundResource(R.color.frenchPuce);
+        }
 
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {

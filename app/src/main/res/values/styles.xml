@@ -20,7 +20,6 @@
         <item name="android:editTextColor">@color/vermillion</item>
         <item name="android:itemBackground">@color/gray</item>
 
-
     </style>
 
     <style name="AppTheme.NoActionBar">
