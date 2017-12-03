@@ -1,7 +1,9 @@
 package com.tylerdarby.charactersheet.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -26,10 +28,18 @@ public class CharacterSelect extends AppCompatActivity {
     ListView characterList;
     SimpleAdapter adapter;
     ArrayList<HashMap<String, String>> list;
+    private SharedPreferences pref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
+        pref = PreferenceManager.getDefaultSharedPreferences(this);
         super.onCreate(savedInstanceState);
+        if(pref.getString("themePref","").equals("Light")) {
+            setTheme(R.style.AppTheme);
+        }
+        else if(pref.getString("themePref","").equals("Dark")){
+            setTheme(R.style.AppThemeDark);
+        }
         setContentView(R.layout.activity_character_select);
         characterList = (ListView) findViewById(R.id.character_search);
         list = new ArrayList<HashMap<String,String>>();

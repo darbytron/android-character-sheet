@@ -1,7 +1,9 @@
 package com.tylerdarby.charactersheet.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -29,10 +31,18 @@ public class CharacterEditDisplayActivity extends AppCompatActivity {
     private TextView characterFeatsStrengthsLabel;
     private TextView characterSpellsLabel;
     private Character character;
+    private SharedPreferences pref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        pref = PreferenceManager.getDefaultSharedPreferences(this);
         super.onCreate(savedInstanceState);
+        if(pref.getString("themePref","").equals("Light")) {
+            setTheme(R.style.AppTheme);
+        }
+        else if(pref.getString("themePref","").equals("Dark")){
+            setTheme(R.style.AppThemeDark);
+        }
         setContentView(R.layout.activity_character_display_edit);
 
         // Create the character
