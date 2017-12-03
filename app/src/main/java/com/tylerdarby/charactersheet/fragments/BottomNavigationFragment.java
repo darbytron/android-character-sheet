@@ -28,13 +28,11 @@ import com.tylerdarby.charactersheet.helpers.BottomNavigationViewHelper;
  */
 
 public class BottomNavigationFragment extends Fragment{
-    private Context context;
     private String theme;
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        this.context = context;
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
         theme = pref.getString("themePref","Light");
 
@@ -59,22 +57,23 @@ public class BottomNavigationFragment extends Fragment{
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         switch (item.getItemId()) {
                             case R.id.action_new_char:
-                                startActivity(new Intent(context, CharacterDisplayActivity.class));
+                                startActivity(new Intent(getActivity(), CharacterDisplayActivity.class));
                                 break;
                             case R.id.action_dice:
-                                startActivity(new Intent(context, CharacterEditDisplayActivity.class));
+                                startActivity(new Intent(getActivity(), DiceRoller.class));
                                 break;
                             case R.id.action_home:
-                                startActivity(new Intent(context, MainActivity.class));
+                                startActivity(new Intent(getActivity(), MainActivity.class));
                                 break;
                             case R.id.action_new_user:
-                                startActivity(new Intent(context, UserRegistration.class));
+                                startActivity(new Intent(getActivity(), UserRegistration.class));
                                 break;
                             case R.id.action_search:
                                 //TODO: search activity
-                                startActivity(new Intent(context, CharacterSelect.class));
+                                startActivity(new Intent(getActivity(), CharacterSelect.class));
                                 break;
                         }
+                        getActivity().finish();
                         return false;
                     }
                 });

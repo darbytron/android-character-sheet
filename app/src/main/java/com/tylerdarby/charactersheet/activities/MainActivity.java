@@ -1,7 +1,12 @@
 package com.tylerdarby.charactersheet.activities;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -10,11 +15,22 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 import com.tylerdarby.charactersheet.R;
+import com.tylerdarby.charactersheet.fragments.CharacterListFragment;
 import com.tylerdarby.charactersheet.utils.AppConstants;
 import com.tylerdarby.charactersheet.utils.DataManager;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
+    private DataManager dataManager;
+    private DataReceiver dataReceiver;
+    private final IntentFilter filter = new IntentFilter(AppConstants.BROADCAST_DM_UPDATE);
+
+    private class DataReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            updateData();
+        }
+    }
 
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu, menu);
@@ -35,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         super.onCreate(savedInstanceState);
+        dataReceiver = new DataReceiver();
         if(pref.getString("themePref","").equals("Light")) {
             setTheme(R.style.AppTheme);
         }
@@ -44,15 +61,52 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         SharedPreferences preferences = getSharedPreferences(AppConstants.SHARED_PREF_KEY, Context.MODE_PRIVATE);
         String username = preferences.getString(AppConstants.USERNAME_KEY, "");
-        DataManager dataManager = DataManager.getDataManager();
+        dataManager = DataManager.getDataManager();
         if(username.isEmpty()) {
             startActivity(new Intent(getApplicationContext(), UserRegistration.class));
         } else {
             dataManager.getData(username);
         }
+        updateData();
+    }
 
-        username = dataManager.getUser().getUsername();
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(dataReceiver != null) {
+            this.registerReceiver(dataReceiver, filter);
+        }
+
+    }
+
+    @Override
+    protected void onPause() {
+        this.unregisterReceiver(dataReceiver);
+        super.onPause();
+
+    }
+
+    private void updateData() {
+        String username = dataManager.getUser().getUsername();
         TextView usernameView = (TextView) findViewById(R.id.usernameLabel);
         usernameView.setText(username);
+        CharacterListFragment newFragment = new CharacterListFragment();
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.main_fragment, newFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
+
 }
+
+//    // Create new fragment and transaction
+//    Fragment newFragment = new ExampleFragment();
+//    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//
+//// Replace whatever is in the fragment_container view with this fragment,
+//// and add the transaction to the back stack
+//transaction.replace(R.id.fragment_container, newFragment);
+//        transaction.addToBackStack(null);
+//
+//// Commit the transaction
+//        transaction.commit();

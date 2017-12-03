@@ -1,16 +1,21 @@
 package com.tylerdarby.charactersheet.activities;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.tylerdarby.charactersheet.R;
+import com.tylerdarby.charactersheet.helpers.BottomNavigationViewHelper;
 import com.tylerdarby.charactersheet.models.Character;
+import com.tylerdarby.charactersheet.utils.AppConstants;
 import com.tylerdarby.charactersheet.utils.DataManager;
 
 public class CharacterEditDisplayActivity extends AppCompatActivity {
@@ -32,19 +37,6 @@ public class CharacterEditDisplayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character_display_edit);
 
-        // Create the character
-        character = new Character();
-
-        // Set the Character values
-        character.setName("Faelina Lunala");
-        character.setLevel(60);
-        character.setBackground("Keeper of the Moon");
-        character.setAlignment("Lawful Good");
-        character.setExperiencePoints("0/4,000,000");
-        character.setRace("Miqo'te");
-        character.setCharacterClass("Paladin");
-        character.setStats(10, 10, 10, 10, 10, 10);
-
         // Initialize the views
         characterNameEditText = (EditText) findViewById(R.id.characterNameEditText);
         characterRaceEditText = (EditText) findViewById(R.id.characterRaceEditText);
@@ -53,26 +45,43 @@ public class CharacterEditDisplayActivity extends AppCompatActivity {
         characterBackgroundEditText = (EditText) findViewById(R.id.characterBackgroundEditText);
         characterAlignmentEditText = (EditText) findViewById(R.id.characterAlignmentEditText);
         characterLevelEditText = (EditText) findViewById(R.id.characterLevelEditText);
+        characterFeatsStrengthsLabel = (TextView) findViewById(R.id.characterFeatsStrengthsLabel);
+        characterSpellsLabel = (TextView) findViewById(R.id.characterSpellsLabel);
         Button saveButton = findViewById(R.id.saveButton);
 
-        // Populate the views
-        characterNameEditText.setText(" " + character.getName());
-        characterRaceEditText.setText(" " + character.getRace());
-        characterClassEditText.setText(" " + character.getClass()); //getCharacterClass
-        characterExperienceEditText.setText(" " + character.getExperiencePoints());
-        characterBackgroundEditText.setText(" " + character.getBackground());
+        // Create the character
+        String id = getIntent().getStringExtra(AppConstants.CHARACTER_ID);
+        if(id == null) {
+            character = new Character();
+        } else {
+            character = DataManager.getDataManager().getCharacter(id);
+            // Populate the views
+            characterNameEditText.setText(character.getName());
+            characterRaceEditText.setText(character.getRace());
+            characterClassEditText.setText(character.getCharacterClass()); //getCharacterClass
+            characterExperienceEditText.setText(character.getExperiencePoints());
+            characterBackgroundEditText.setText(character.getBackground());
+            characterLevelEditText.setText(character.getLevel());
+            //TODO: Finish character prefill
+        }
 
-        characterLevelEditText.setText(" " + character.getLevel());
 
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 DataManager dataManager = DataManager.getDataManager();
+                setValues();
                 dataManager.saveCharacter(character);
+                //TODO: Enter Toast
+                finish();
             }
         });
 
+
     }
 
+    private void setValues() {
+        
+    }
 }

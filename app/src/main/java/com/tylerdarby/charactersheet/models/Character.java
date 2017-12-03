@@ -19,7 +19,7 @@ public class Character {
     //Required
     private int armorClass;
     private String characterClass;
-    private String featsAndTraits;
+    private List<Skill> skills;
     private int level;
     private String name;
     private String race;
@@ -27,25 +27,38 @@ public class Character {
     private String health;
 
     //Optional
-    private List<Skill> skills;
-    private List<Proficiencies> proficiencies;
-    private List<Spell> spells;
     private List<InventoryItem> inventory;
     private String alignment;
     private String background;
     private String experiencePoints;
     private String groupName;
     private int initiative;
+    private String proficiencies;
     private int speed;
-
+    private List<Spell> spells;
     private int vision;
     private String notes;
 
     public Character() {
+        armorClass = 0;
+        characterClass = "";
+        skills = new ArrayList<>();
+        level = 0;
+        name = "";
+        race = "";
         stats = new Stats();
-
+        health = "";
         inventory = new ArrayList<>();
+        alignment = "";
+        background = "";
+        experiencePoints = "";
+        groupName = "";
+        initiative = 0;
+        proficiencies = "";
+        speed = 0;
         spells = new ArrayList<>();
+        vision = 0;
+        notes = "";
     }
 
     public String getId() {
@@ -72,12 +85,12 @@ public class Character {
         this.characterClass = characterClass;
     }
 
-    public String getFeatsAndTraits() {
-        return featsAndTraits;
+    public List<Skill> getSkills() {
+        return skills;
     }
 
-    public void setFeatsAndTraits(String featsAndTraits) {
-        this.featsAndTraits = featsAndTraits;
+    public void setSkills(List<Skill> skills) {
+        this.skills = skills;
     }
 
     public List<InventoryItem> getInventory() {
@@ -165,6 +178,14 @@ public class Character {
         this.initiative = initiative;
     }
 
+    public String getProficiencies() {
+        return proficiencies;
+    }
+
+    public void setProficiencies(String proficiencies) {
+        this.proficiencies = proficiencies;
+    }
+
     public int getSpeed() {
         return speed;
     }
@@ -200,19 +221,26 @@ public class Character {
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
-//        result.put("id", id);
-//        result.put("armorClass", armorClass);
-//        result.put("characterClass", characterClass);
-//        result.put("featsAndTraits", featsAndTraits);
-//        result.put("name", name);
-//        result.put("race", race);
-//        result.put("stats", stats);
-        result.put("armorClass", 10);
-        result.put("characterClass", "Test Character Class");
-        result.put("featsAndTraits", "Test Features");
-        result.put("name", "Test Name");
-        result.put("race", "Test Race");
-
+        result.put("id", id);
+        result.put("armorClass", armorClass);
+        result.put("characterClass", characterClass);
+        result.put("skills", skills);
+        result.put("level", level);
+        result.put("name", name);
+        result.put("race", race);
+        result.put("stats", stats);
+        result.put("health", health);
+        result.put("inventory", inventory);
+        result.put("alignment", alignment);
+        result.put("background", background);
+        result.put("experiencePoints", experiencePoints);
+        result.put("groupName", groupName);
+        result.put("initiative", initiative);
+        result.put("proficiencies", proficiencies);
+        result.put("speed", speed);
+        result.put("spells", spells);
+        result.put("vision", vision);
+        result.put("notes", notes);
         return result;
     }
 }
