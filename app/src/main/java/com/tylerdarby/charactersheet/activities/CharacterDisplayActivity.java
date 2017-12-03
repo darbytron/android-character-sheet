@@ -5,6 +5,8 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.view.MenuItem;
 
@@ -14,21 +16,26 @@ import com.tylerdarby.charactersheet.helpers.BottomNavigationViewHelper;
 
 public class CharacterDisplayActivity extends AppCompatActivity {
 
+    // Declare the fields
     private TextView characterNameView;
     private TextView characterRaceView;
     private TextView characterClassView;
     private TextView characterExperienceView;
-    private TextView characteBackgroundView;
+    private TextView characterBackgroundView;
     private TextView characterAlignmentView;
     private TextView characterLevelView;
+    private TextView characterFeatsStrengthsLabel;
+    private TextView characterSpellsLabel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character_display);
 
+        // Create the character
         Character character = new Character();
 
+        // Set the Character values
         character.setName("Faelina Lunala");
         character.setLevel(60);
         character.setBackground("Keeper of the Moon");
@@ -38,49 +45,42 @@ public class CharacterDisplayActivity extends AppCompatActivity {
         character.setCharacterClass("Paladin");
         character.setStats(10, 10, 10, 10, 10, 10);
 
+        // Initialize the views
         characterNameView = (TextView) findViewById(R.id.characterNameView);
         characterRaceView = (TextView) findViewById(R.id.characterRaceView);
         characterClassView = (TextView) findViewById(R.id.characterClassView);
         characterExperienceView = (TextView) findViewById(R.id.characterExperienceView);
-        characteBackgroundView = (TextView) findViewById(R.id.characterBackgroundView);
+        characterBackgroundView = (TextView) findViewById(R.id.characterBackgroundView);
         characterAlignmentView = (TextView) findViewById(R.id.characterAlignmentView);
         characterLevelView = (TextView) findViewById(R.id.characterLevelView);
+        characterFeatsStrengthsLabel = (TextView) findViewById(R.id.characterFeatsStrengthsLabel);
+        characterSpellsLabel = (TextView) findViewById(R.id.characterSpellsLabel);
 
-        characterLevelView.setText("" + character.getLevel());
+        // Populate the views
+        characterNameView.setText(" " + character.getName());
+        characterRaceView.setText(" " + character.getRace());
+        characterClassView.setText(" " + character.getCharacterClass());
+        characterExperienceView.setText(" " + character.getExperiencePoints());
+        characterBackgroundView.setText(" " + character.getBackground());
+        characterAlignmentView.setText(" " + character.getAlignment());
+        characterLevelView.setText(" " + character.getLevel());
 
 
-        BottomNavigationView bottomNavigationView = (BottomNavigationView)
-                findViewById(R.id.bottom_navigation);
-        BottomNavigationViewHelper viewHelper = new BottomNavigationViewHelper();
-        viewHelper.disableShiftMode(bottomNavigationView);
+        characterFeatsStrengthsLabel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CharacterDisplayActivity.this, FeatsAndStrengths.class);
+                startActivity(intent);
+            }
+        });
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(
-                new BottomNavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                        switch (item.getItemId()) {
-                            case R.id.action_new_char:
-                                Intent charCreation = new Intent(getApplicationContext(), CharacterDisplayActivity.class);
-                                startActivity(charCreation);
-                                break;
-                            case R.id.action_dice:
-                                Intent diceRoller = new Intent(getApplicationContext(), DiceRoller.class);
-                                startActivity(diceRoller);
-                                break;
-                            case R.id.action_home:
-                                Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
-                                startActivity(mainActivity);
-                                break;
-                            case R.id.action_new_user:
-                                Intent userReg = new Intent(getApplicationContext(), UserRegistration.class);
-                                startActivity(userReg);
-                                break;
-                            case R.id.action_reserved:
-                                break;
-                        }
-                        return false;
-                    }
-                });
+        characterSpellsLabel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CharacterDisplayActivity.this, Spells.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }

@@ -1,16 +1,21 @@
 package com.tylerdarby.charactersheet.models;
 
+import com.google.firebase.database.Exclude;
+import com.google.firebase.database.IgnoreExtraProperties;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by tdarby on 10/2/17.
  */
 
+@IgnoreExtraProperties
 public class Character {
 
     private String id;
-    private String owner; //User.userName
     //Required
     private int armorClass;
     private String characterClass;
@@ -198,9 +203,22 @@ public class Character {
         this.notes = notes;
     }
 
-     public void setHealth(int max, int current){
-         this.health.setMax(max);
-         this.health.setCurrent(current);
-         this.health.setTemp(current);
-     }
+    @Exclude
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> result = new HashMap<>();
+//        result.put("id", id);
+//        result.put("armorClass", armorClass);
+//        result.put("characterClass", characterClass);
+//        result.put("featsAndTraits", featsAndTraits);
+//        result.put("name", name);
+//        result.put("race", race);
+//        result.put("stats", stats);
+        result.put("armorClass", 10);
+        result.put("characterClass", "Test Character Class");
+        result.put("featsAndTraits", "Test Features");
+        result.put("name", "Test Name");
+        result.put("race", "Test Race");
+
+        return result;
+    }
 }
