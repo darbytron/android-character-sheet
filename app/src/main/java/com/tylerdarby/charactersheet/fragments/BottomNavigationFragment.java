@@ -3,7 +3,9 @@ package com.tylerdarby.charactersheet.fragments;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
@@ -26,22 +28,31 @@ import com.tylerdarby.charactersheet.helpers.BottomNavigationViewHelper;
  */
 
 public class BottomNavigationFragment extends Fragment{
-    private BottomNavigationView bottomNavigationView;
     private Context context;
+    private String theme;
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         this.context = context;
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
+        theme = pref.getString("themePref","Light");
+
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_bottom_navigation, container, false);
-        bottomNavigationView = v.findViewById(R.id.bottom_navigation);
+        BottomNavigationView bottomNavigationView = v.findViewById(R.id.bottom_navigation);
         BottomNavigationViewHelper viewHelper = new BottomNavigationViewHelper();
         viewHelper.disableShiftMode(bottomNavigationView);
+        if(theme.equals("Light")) {
+            bottomNavigationView.setItemBackgroundResource(R.color.colorPrimary);
+        }
+        else if(theme.equals("Dark")){
+            bottomNavigationView.setItemBackgroundResource(R.color.frenchPuce);
+        }
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override

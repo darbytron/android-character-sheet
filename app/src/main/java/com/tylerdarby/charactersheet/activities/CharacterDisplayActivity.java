@@ -1,8 +1,9 @@
 package com.tylerdarby.charactersheet.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -26,10 +27,18 @@ public class CharacterDisplayActivity extends AppCompatActivity {
     private TextView characterLevelView;
     private TextView characterFeatsStrengthsLabel;
     private TextView characterSpellsLabel;
+    private SharedPreferences pref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        pref = PreferenceManager.getDefaultSharedPreferences(this);
         super.onCreate(savedInstanceState);
+        if(pref.getString("themePref","").equals("Light")) {
+            setTheme(R.style.AppTheme);
+        }
+        else if(pref.getString("themePref","").equals("Dark")){
+            setTheme(R.style.AppThemeDark);
+        }
         setContentView(R.layout.activity_character_display);
 
         // Create the character
@@ -73,6 +82,8 @@ public class CharacterDisplayActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
 
         characterSpellsLabel.setOnClickListener(new View.OnClickListener() {
             @Override

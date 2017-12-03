@@ -19,6 +19,7 @@
         <activity android:name=".activities.CharacterEditDisplayActivity" />
         <activity android:name=".activities.UserRegistration" />
         <activity android:name=".activities.DiceRoller" />
+        <activity android:name=".activities.SettingsActivity"/>
         <activity android:name=".activities.FeatsAndStrengths" />
         <activity android:name=".activities.Spells" />
         <activity android:name=".activities.CharacterSelect" />

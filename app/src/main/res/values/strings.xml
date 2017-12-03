@@ -63,6 +63,8 @@
     <string name="characterProficiencies">Proficiencies</string>
     <string name="characterSpells">Spells</string>
     <string name="characterInventory">Inventory</string>
+
+    <string name="menu_settings">settings</string>
     <string name="username">Username</string>
     <string name="characters">Characters</string>
     <string name="add_character">Add Character</string>
