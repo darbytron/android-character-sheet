@@ -7,4 +7,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
     </ListView>
+    <Button
+        android:id="@+id/addCharacterButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_character"/>
 </LinearLayout>

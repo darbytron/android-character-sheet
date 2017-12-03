@@ -19,6 +19,7 @@ import com.tylerdarby.charactersheet.models.User;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by tdarby on 11/26/17.
@@ -26,10 +27,11 @@ import java.util.HashMap;
 
 public class DataManager {
     private static DataManager dataManager;
-    private final FirebaseDatabase database = FirebaseDatabase.getInstance();
-    private DatabaseReference userReference;
     private User user;
-    private HashMap<String, Character> characterMap;
+
+    public interface OnDataUpdateListener {
+        void onDataUpdate();
+    }
 
 
 
@@ -38,13 +40,13 @@ public class DataManager {
     public static synchronized DataManager getDataManager() {
         if(dataManager == null) {
             dataManager = new DataManager();
-            dataManager.characterMap = new HashMap<>();
+            dataManager.loadSampleData();
         }
         return dataManager;
     }
 
     public void getData(final String username) {
-        userReference = database.getReference("users/" + username);
+        final DatabaseReference userReference = FirebaseDatabase.getInstance().getReference("users/" + username);
         userReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -52,13 +54,8 @@ public class DataManager {
                 if(user == null) {
                     user = new User(username);
                 }
-                if(user.getCharacters() != null) {
-                    for(Character character : user.getCharacters()) {
-                        characterMap.put(character.getId(), character);
-                    }
-                }
-
                 userReference.setValue(user);
+
             }
 
             @Override
@@ -66,15 +63,33 @@ public class DataManager {
         });
     }
 
+    private void loadSampleData() {
+        user = new User("Loading...");
+
+    }
+
     public User getUser() {
+        if(user.getCharacters() == null) {
+            user.setCharacters(new HashMap<String, Character>());
+        }
         return user;
     }
 
     public Character getCharacter(String id) {
-        return characterMap.get(id);
+        return getUser().getCharacters().get(id);
     }
 
     public Collection<Character> getCharacters() {
-        return characterMap.values();
+        return getUser().getCharacters().values();
+    }
+
+    public void saveCharacter(Character character) {
+        final DatabaseReference userReference = FirebaseDatabase.getInstance().getReference("users/" + user.getUsername());
+        DatabaseReference characterDb = userReference.child("characters");
+        String key = characterDb.push().getKey();
+        Map<String, Object> charValues = character.toMap();
+        Map<String, Object> childUpdates = new HashMap<>();
+        childUpdates.put(key, charValues);
+        characterDb.updateChildren(childUpdates);
     }
 }

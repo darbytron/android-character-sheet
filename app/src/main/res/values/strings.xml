@@ -42,7 +42,7 @@
     <string name="characterName">Name:</string>
     <string name="characterRace">Race:</string>
     <string name="characterBackground">Background</string>
-    <string name="characterLevel">Level</string>
+    <string name="characterLevel">Level:</string>
     <string name="characterExperience">Experience:</string>
     <string name="characterClass">Class:</string>
     <string name="characterAlignment">Alignment:</string>
@@ -65,4 +65,6 @@
     <string name="characterInventory">Inventory</string>
     <string name="username">Username</string>
     <string name="characters">Characters</string>
+    <string name="add_character">Add Character</string>
+    <string name="save_character">Save Character</string>
 </resources>

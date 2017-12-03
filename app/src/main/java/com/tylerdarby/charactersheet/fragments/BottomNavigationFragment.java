@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 
 import com.tylerdarby.charactersheet.R;
 import com.tylerdarby.charactersheet.activities.CharacterDisplayActivity;
+import com.tylerdarby.charactersheet.activities.CharacterEditDisplayActivity;
 import com.tylerdarby.charactersheet.activities.DiceRoller;
 import com.tylerdarby.charactersheet.activities.MainActivity;
 import com.tylerdarby.charactersheet.activities.UserRegistration;
@@ -49,7 +50,7 @@ public class BottomNavigationFragment extends Fragment{
                                 startActivity(new Intent(context, CharacterDisplayActivity.class));
                                 break;
                             case R.id.action_dice:
-                                startActivity(new Intent(context, DiceRoller.class));
+                                startActivity(new Intent(context, CharacterEditDisplayActivity.class));
                                 break;
                             case R.id.action_home:
                                 startActivity(new Intent(context, MainActivity.class));
