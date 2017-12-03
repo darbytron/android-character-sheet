@@ -26,8 +26,8 @@
             android:textSize="24sp"
             android:layout_below="@id/usernameLabel"
             android:text="@string/characters"/>
-        <fragment
-            android:name="com.tylerdarby.charactersheet.fragments.CharacterListFragment"
+
+        <FrameLayout
             android:id="@+id/main_fragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

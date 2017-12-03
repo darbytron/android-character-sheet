@@ -1,7 +1,11 @@
 package com.tylerdarby.charactersheet.utils;
 
+import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
 import com.google.firebase.database.ChildEventListener;
@@ -25,23 +29,20 @@ import java.util.Map;
  * Created by tdarby on 11/26/17.
  */
 
-public class DataManager {
+public class DataManager extends Application{
     private static DataManager dataManager;
     private User user;
 
-    public interface OnDataUpdateListener {
-        void onDataUpdate();
+    public DataManager() {}
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        dataManager = this;
+        dataManager.loadSampleData();
     }
 
-
-
-    private DataManager() {}
-
     public static synchronized DataManager getDataManager() {
-        if(dataManager == null) {
-            dataManager = new DataManager();
-            dataManager.loadSampleData();
-        }
         return dataManager;
     }
 
@@ -56,6 +57,10 @@ public class DataManager {
                 }
                 userReference.setValue(user);
 
+                Intent intent = new Intent();
+                intent.setAction(AppConstants.BROADCAST_DM_UPDATE);
+                sendBroadcast(intent);
+
             }
 
             @Override
@@ -65,7 +70,6 @@ public class DataManager {
 
     private void loadSampleData() {
         user = new User("Loading...");
-
     }
 
     public User getUser() {
@@ -80,16 +84,21 @@ public class DataManager {
     }
 
     public Collection<Character> getCharacters() {
+
         return getUser().getCharacters().values();
     }
 
     public void saveCharacter(Character character) {
         final DatabaseReference userReference = FirebaseDatabase.getInstance().getReference("users/" + user.getUsername());
         DatabaseReference characterDb = userReference.child("characters");
-        String key = characterDb.push().getKey();
+        if(character.getId() == null) {
+            String key = characterDb.push().getKey();
+            character.setId(key);
+        }
         Map<String, Object> charValues = character.toMap();
         Map<String, Object> childUpdates = new HashMap<>();
-        childUpdates.put(key, charValues);
+        childUpdates.put(character.getId(), charValues);
         characterDb.updateChildren(childUpdates);
     }
+
 }

@@ -14,6 +14,8 @@ import android.view.MenuItem;
 import com.tylerdarby.charactersheet.R;
 import com.tylerdarby.charactersheet.models.Character;
 import com.tylerdarby.charactersheet.helpers.BottomNavigationViewHelper;
+import com.tylerdarby.charactersheet.utils.AppConstants;
+import com.tylerdarby.charactersheet.utils.DataManager;
 
 public class CharacterDisplayActivity extends AppCompatActivity {
 
@@ -42,17 +44,8 @@ public class CharacterDisplayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_character_display);
 
         // Create the character
-        Character character = new Character();
-
-        // Set the Character values
-        character.setName("Faelina Lunala");
-        character.setLevel(60);
-        character.setBackground("Keeper of the Moon");
-        character.setAlignment("Lawful Good");
-        character.setExperiencePoints("0/4,000,000");
-        character.setRace("Miqo'te");
-        character.setCharacterClass("Paladin");
-        character.setStats(10, 10, 10, 10, 10, 10);
+        String id = getIntent().getStringExtra(AppConstants.CHARACTER_ID);
+        Character character = DataManager.getDataManager().getCharacter(id);
 
         // Initialize the views
         characterNameView = (TextView) findViewById(R.id.characterNameView);
@@ -66,13 +59,13 @@ public class CharacterDisplayActivity extends AppCompatActivity {
         characterSpellsLabel = (TextView) findViewById(R.id.characterSpellsLabel);
 
         // Populate the views
-        characterNameView.setText(" " + character.getName());
-        characterRaceView.setText(" " + character.getRace());
-        characterClassView.setText(" " + character.getCharacterClass());
-        characterExperienceView.setText(" " + character.getExperiencePoints());
-        characterBackgroundView.setText(" " + character.getBackground());
-        characterAlignmentView.setText(" " + character.getAlignment());
-        characterLevelView.setText(" " + character.getLevel());
+        characterNameView.setText(character.getName());
+        characterRaceView.setText(character.getRace());
+        characterClassView.setText(character.getCharacterClass());
+        characterExperienceView.setText(character.getExperiencePoints());
+        characterBackgroundView.setText(character.getBackground());
+        characterAlignmentView.setText(character.getAlignment());
+        characterLevelView.setText(character.getLevel());
 
 
         characterFeatsStrengthsLabel.setOnClickListener(new View.OnClickListener() {

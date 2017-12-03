@@ -24,6 +24,7 @@ public class CharacterItemAdapter extends ArrayAdapter<Character>{
         this.resourceId = resourceId;
     }
 
+
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -38,6 +39,7 @@ public class CharacterItemAdapter extends ArrayAdapter<Character>{
 
         TextView textView = v.findViewById(R.id.label);
         textView.setText(character.getName());
+        v.setTag(character.getId());
         //TODO: Make list prettier, add more character detail
         return v;
     }
