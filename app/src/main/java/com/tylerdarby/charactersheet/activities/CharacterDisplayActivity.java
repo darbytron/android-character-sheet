@@ -75,7 +75,7 @@ public class CharacterDisplayActivity extends AppCompatActivity {
                                 Intent userReg = new Intent(getApplicationContext(), UserRegistration.class);
                                 startActivity(userReg);
                                 break;
-                            case R.id.action_reserved:
+                            case R.id.action_search:
                                 break;
                         }
                         return false;
