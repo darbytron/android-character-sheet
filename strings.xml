@@ -1,0 +1,83 @@
+<resources>
+    <string name="app_name">Character Sheet</string>
+    <string name="title_activity_character_creation">CharacterCreation</string>
+
+    <string name="text_favorites">Favorites</string>
+    <string name="text_home">Home</string>
+    <string name="text_schedules">Schedules</string>
+    <string name="text_music">Music</string>
+    <string name="user_reg">User Reg.</string>
+    <string name="search">Search</string>
+    <string name="dice">Dice</string>
+    <string name="character_creation">New Char.</string>
+    <string name="enter_username">Enter Username</string>
+    <string name="register">Register</string>
+    <string name="numberOfDice">Number of Dice: </string>
+    <string name="diceValue">Number of Sides</string>
+    <string name="diceModValueLabel">Dice Modifier: </string>
+    <string name="calculate">Roll the dice!</string>
+    <string name="displayValue" />
+    <string name="diceRollLabel">Your rolls:</string>
+    <string name="diceTotalLabel">Total of Dice:</string>
+    <string name="totalValue" />
+
+    <string-array name="diceArray">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+    <string-array name="sideArray">
+        <item>2</item>
+        <item>4</item>
+        <item>6</item>
+        <item>8</item>
+        <item>10</item>
+        <item>12</item>
+        <item>20</item>
+        <item>100</item>
+    </string-array>
+
+    <string-array name="modArray">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+    <string name="characterInfo">Character Information</string>
+    <string name="defaultDataString" />
+    <string name="characterName">Name:</string>
+    <string name="characterRace">Race:</string>
+    <string name="characterBackground">Background</string>
+    <string name="characterLevel">Level:</string>
+    <string name="characterExperience">Experience:</string>
+    <string name="characterClass">Class:</string>
+    <string name="characterAlignment">Alignment:</string>
+    <string name="characterStats">Mains Stats</string>
+    <string name="characterStrength">Str:</string>
+    <string name="characterConstitution">Con:</string>
+    <string name="characterDexterity">Dex:</string>
+    <string name="characterIntelligence">Int:</string>
+    <string name="characterWisdom">Wis:</string>
+    <string name="characterCharisma">Cha:</string>
+    <string name="characterStatsMain">Main Stats</string>
+    <string name="characterStatsSub">Sub Stats</string>
+    <string name="characterArmorClass">Armor Class:</string>
+    <string name="characterInitiative">Initiative:</string>
+    <string name="characterSpeed">Speed:</string>
+    <string name="characterVision">Vision:</string>
+    <string name="characterFeatsTraits">Feats and Traits</string>
+    <string name="characterProficiencies">Proficiencies</string>
+    <string name="characterSpells">Spells</string>
+    <string name="characterInventory">Inventory</string>
+    <string name="username">Username</string>
+    <string name="characters">Characters</string>
+    <string name="add_character">Add Character</string>
+    <string name="save_character">Save Character</string>
+    <string name="search_name">Search...</string>
+</resources>
