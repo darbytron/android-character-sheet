@@ -4,16 +4,16 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.view.MenuItem;
 
-import com.tylerdarby.charactersheet.R;
 import com.tylerdarby.charactersheet.models.Character;
-import com.tylerdarby.charactersheet.helpers.BottomNavigationViewHelper;
+
 
 public class CharacterDisplayActivity extends AppCompatActivity {
 
@@ -93,5 +93,7 @@ public class CharacterDisplayActivity extends AppCompatActivity {
             }
         });
 
+
     }
+
 }
