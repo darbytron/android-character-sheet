@@ -7,7 +7,7 @@
     android:orientation="vertical">
 <ScrollView
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context="com.tylerdarby.charactersheet.activities.CharacterDisplayActivity"
     android:layout_marginStart="20dp"
     android:layout_marginEnd="20dp"
@@ -475,7 +475,12 @@
     </LinearLayout>
 
 </ScrollView>
-
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/save_character"
+        android:layout_above="@id/bottom_navigation_fragment"/>
     <fragment
         android:name="com.tylerdarby.charactersheet.fragments.BottomNavigationFragment"
         android:id="@+id/bottom_navigation_fragment"

@@ -1,6 +1,7 @@
 package com.tylerdarby.charactersheet.activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -26,7 +27,7 @@ public class UserRegistration extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 registerUser(usernameText.getText().toString());
-//                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
             }
         });
     }

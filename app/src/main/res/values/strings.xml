@@ -65,4 +65,6 @@
     <string name="characterInventory">Inventory</string>
     <string name="username">Username</string>
     <string name="characters">Characters</string>
+    <string name="add_character">Add Character</string>
+    <string name="save_character">Save Character</string>
 </resources>

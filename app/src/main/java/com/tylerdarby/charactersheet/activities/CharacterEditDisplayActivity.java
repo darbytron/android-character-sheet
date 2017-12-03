@@ -7,12 +7,14 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.tylerdarby.charactersheet.R;
 import com.tylerdarby.charactersheet.helpers.BottomNavigationViewHelper;
 import com.tylerdarby.charactersheet.models.Character;
+import com.tylerdarby.charactersheet.utils.DataManager;
 
 public class CharacterEditDisplayActivity extends AppCompatActivity {
 
@@ -26,6 +28,7 @@ public class CharacterEditDisplayActivity extends AppCompatActivity {
     private EditText characterLevelEditText;
     private TextView characterFeatsStrengthsLabel;
     private TextView characterSpellsLabel;
+    private Character character;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +36,7 @@ public class CharacterEditDisplayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_character_display_edit);
 
         // Create the character
-        Character character = new Character();
+        character = new Character();
 
         // Set the Character values
         character.setName("Faelina Lunala");
@@ -55,6 +58,7 @@ public class CharacterEditDisplayActivity extends AppCompatActivity {
         characterLevelEditText = (EditText) findViewById(R.id.characterLevelEditText);
         characterFeatsStrengthsLabel = (TextView) findViewById(R.id.characterFeatsStrengthsLabel);
         characterSpellsLabel = (TextView) findViewById(R.id.characterSpellsLabel);
+        Button saveButton = findViewById(R.id.saveButton);
 
         // Populate the views
         characterNameEditText.setText(" " + character.getName());
@@ -79,6 +83,14 @@ public class CharacterEditDisplayActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(CharacterEditDisplayActivity.this, Spells.class);
                 startActivity(intent);
+            }
+        });
+
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DataManager dataManager = DataManager.getDataManager();
+                dataManager.saveCharacter(character);
             }
         });
 
