@@ -4,10 +4,18 @@ package com.tylerdarby.charactersheet.models;
  * Created by tdarby on 10/2/17.
  */
 
-public class Skills {
+public class Skill {
     private String modifierType;
     private String name;
+    private String description;
     private int points;
+
+    public Skill(String modifierType, String name, String description, int points) {
+        this.modifierType = modifierType;
+        this.name = name;
+        this.description = description;
+        this.points = points;
+    }
 
     public String getModifierType() {
         return modifierType;
@@ -25,6 +33,14 @@ public class Skills {
         this.name = name;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public int getPoints() {
         return points;
     }
@@ -32,4 +48,6 @@ public class Skills {
     public void setPoints(int points) {
         this.points = points;
     }
+
+
 }

@@ -4,20 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.tylerdarby.charactersheet.activities.UserRegistration">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Main"/>
-
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/bottom_navigation"
+    tools:context="com.tylerdarby.charactersheet.activities.MainActivity">
+    <RelativeLayout
+        android:id="@+id/main_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="20dp">
+        <TextView
+            android:id="@+id/usernameLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textSize="32sp"
+            android:text="@string/username"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:id="@+id/characterLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:layout_below="@id/usernameLabel"
+            android:text="@string/characters"/>
+        <fragment
+            android:name="com.tylerdarby.charactersheet.fragments.CharacterListFragment"
+            android:id="@+id/main_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/characterLabel"
+            />
+
+    </RelativeLayout>
+    <fragment
+        android:name="com.tylerdarby.charactersheet.fragments.BottomNavigationFragment"
+        android:id="@+id/bottom_navigation_fragment"
         android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:theme="@style/Theme.AppCompat"
-        app:menu="@menu/bottom_navigation_main" />
+        />
+
+
 
 </RelativeLayout>

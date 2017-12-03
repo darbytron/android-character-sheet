@@ -136,13 +136,13 @@
 
     </ScrollView>
 
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <fragment
+        android:name="com.tylerdarby.charactersheet.fragments.BottomNavigationFragment"
+        android:id="@+id/bottom_navigation_fragment"
         android:layout_alignParentBottom="true"
-        android:theme="@style/Theme.AppCompat"
-        app:menu="@menu/bottom_navigation_main" />
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        />
 
 
 </RelativeLayout>
