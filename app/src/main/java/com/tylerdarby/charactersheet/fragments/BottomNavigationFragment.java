@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import com.tylerdarby.charactersheet.R;
 import com.tylerdarby.charactersheet.activities.CharacterDisplayActivity;
 import com.tylerdarby.charactersheet.activities.CharacterEditDisplayActivity;
+import com.tylerdarby.charactersheet.activities.CharacterSelect;
 import com.tylerdarby.charactersheet.activities.DiceRoller;
 import com.tylerdarby.charactersheet.activities.MainActivity;
 import com.tylerdarby.charactersheet.activities.UserRegistration;
@@ -60,7 +61,7 @@ public class BottomNavigationFragment extends Fragment{
                                 break;
                             case R.id.action_search:
                                 //TODO: search activity
-                                startActivity(new Intent(context, MainActivity.class));
+                                startActivity(new Intent(context, CharacterSelect.class));
                                 break;
                         }
                         return false;

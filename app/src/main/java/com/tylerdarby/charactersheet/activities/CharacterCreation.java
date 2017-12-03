@@ -72,6 +72,6 @@ public class CharacterCreation extends AppCompatActivity implements View.OnClick
         player.setRace(race);
         player.setLevel(level);
         player.setName(name);
-        player.setHealth(hpMax,hpCurrent);
+//        player.setHealth(hpMax,hpCurrent);
     }
 }

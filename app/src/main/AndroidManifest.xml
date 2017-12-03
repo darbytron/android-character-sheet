@@ -21,6 +21,7 @@
         <activity android:name=".activities.DiceRoller" />
         <activity android:name=".activities.FeatsAndStrengths" />
         <activity android:name=".activities.Spells" />
+        <activity android:name=".activities.CharacterSelect" />
     </application>
 
 </manifest>
