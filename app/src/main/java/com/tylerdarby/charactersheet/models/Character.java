@@ -24,26 +24,28 @@ public class Character {
     private String name;
     private String race;
     private Stats stats;
-    private HealthPoints health;
+    private String health;
 
     //Optional
+    private List<Skill> skills;
+    private List<Proficiencies> proficiencies;
+    private List<Spell> spells;
     private List<InventoryItem> inventory;
     private String alignment;
     private String background;
     private String experiencePoints;
     private String groupName;
     private int initiative;
-    private String proficiencies;
     private int speed;
-    private List<Spell> spells;
+
     private int vision;
     private String notes;
 
     public Character() {
         stats = new Stats();
+
         inventory = new ArrayList<>();
         spells = new ArrayList<>();
-        health = new HealthPoints();
     }
 
     public String getId() {
@@ -161,14 +163,6 @@ public class Character {
 
     public void setInitiative(int initiative) {
         this.initiative = initiative;
-    }
-
-    public String getProficiencies() {
-        return proficiencies;
-    }
-
-    public void setProficiencies(String proficiencies) {
-        this.proficiencies = proficiencies;
     }
 
     public int getSpeed() {

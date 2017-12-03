@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.view.MenuItem;
 
+import com.tylerdarby.charactersheet.R;
 import com.tylerdarby.charactersheet.models.Character;
 
 
@@ -93,6 +94,25 @@ public class CharacterDisplayActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.character_display_activity_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.editCharacter:
+                startActivity(new Intent(getApplicationContext(), CharacterEditDisplayActivity.class));
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
 
     }
 

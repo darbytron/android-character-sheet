@@ -2,17 +2,14 @@ package com.tylerdarby.charactersheet.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.tylerdarby.charactersheet.R;
-import com.tylerdarby.charactersheet.helpers.BottomNavigationViewHelper;
 import com.tylerdarby.charactersheet.models.Character;
 import com.tylerdarby.charactersheet.utils.DataManager;
 
@@ -56,8 +53,6 @@ public class CharacterEditDisplayActivity extends AppCompatActivity {
         characterBackgroundEditText = (EditText) findViewById(R.id.characterBackgroundEditText);
         characterAlignmentEditText = (EditText) findViewById(R.id.characterAlignmentEditText);
         characterLevelEditText = (EditText) findViewById(R.id.characterLevelEditText);
-        characterFeatsStrengthsLabel = (TextView) findViewById(R.id.characterFeatsStrengthsLabel);
-        characterSpellsLabel = (TextView) findViewById(R.id.characterSpellsLabel);
         Button saveButton = findViewById(R.id.saveButton);
 
         // Populate the views
@@ -69,22 +64,6 @@ public class CharacterEditDisplayActivity extends AppCompatActivity {
 
         characterLevelEditText.setText(" " + character.getLevel());
 
-        // Set up the listeners
-        characterFeatsStrengthsLabel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(CharacterEditDisplayActivity.this, FeatsAndStrengths.class);
-                startActivity(intent);
-            }
-        });
-
-        characterSpellsLabel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(CharacterEditDisplayActivity.this, Spells.class);
-                startActivity(intent);
-            }
-        });
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,6 +73,6 @@ public class CharacterEditDisplayActivity extends AppCompatActivity {
             }
         });
 
-
     }
+
 }
