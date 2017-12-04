@@ -19,12 +19,12 @@
         android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/text_home"
         app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/action_new_user"
-        android:enabled="true"
-        android:icon="@drawable/ic_create_black_24dp"
-        android:title="@string/user_reg"
-        app:showAsAction="ifRoom" />
+    <!--<item-->
+        <!--android:id="@+id/action_new_user"-->
+        <!--android:enabled="true"-->
+        <!--android:icon="@drawable/ic_create_black_24dp"-->
+        <!--android:title="@string/user_reg"-->
+        <!--app:showAsAction="ifRoom" />-->
     <item
         android:id="@+id/action_search"
         android:enabled="true"

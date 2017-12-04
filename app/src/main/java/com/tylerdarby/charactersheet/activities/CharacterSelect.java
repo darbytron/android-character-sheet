@@ -1,9 +1,7 @@
 package com.tylerdarby.charactersheet.activities;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
+
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -11,11 +9,21 @@ import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.SimpleAdapter;
+
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.tylerdarby.charactersheet.R;
-import com.tylerdarby.charactersheet.helpers.BottomNavigationViewHelper;
+import com.tylerdarby.charactersheet.models.User;
+import com.tylerdarby.charactersheet.models.Character;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by Xilador on 11/28/2017.
@@ -31,8 +39,8 @@ public class CharacterSelect extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_character_select);
-        characterList = (ListView) findViewById(R.id.character_search);
-        list = new ArrayList<HashMap<String,String>>();
+        characterList = findViewById(R.id.character_search);
+        list = new ArrayList<>();
         getInformation(null);
     }
 
@@ -42,15 +50,16 @@ public class CharacterSelect extends AppCompatActivity {
         inflater.inflate(R.menu.menu_items,menu);
         MenuItem item = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) item.getActionView();
+        searchView.setQueryHint("Search for a user or character...");
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
+                getInformation(s);
                 return false;
             }
 
             @Override
             public boolean onQueryTextChange(String s) {
-                getInformation(s);
                 return false;
             }
         });
@@ -59,32 +68,44 @@ public class CharacterSelect extends AppCompatActivity {
 
     //send null instead to not filter it
     public void getInformation(String s){
-        // example of how to input info into the list
-        //No need to filter results based on the text,  The bottom should do that for us
-        /*
-        if (the data exists){
-            while(getNextDataSet){
-                HashMap<String,String> temp = new HashMap<String, String>();
-                temp.put("User", getUser);
-                temp.put("Character Name", getName);
-                temp.put("Class", getClass());
-                temp.put("Level", getLevel());
-                list.add(temp);
-            }
+        if(s != null && !s.isEmpty()) {
+            list.clear();
+            final DatabaseReference db = FirebaseDatabase.getInstance().getReference("users");
+            Query queryRef = db.orderByChild("characters/name");
+            queryRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for(DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                        User user = childSnapshot.getValue(User.class);
+                        if(user != null && user.getCharacters() != null) {
+                            for(Character character : user.getCharacters().values()) {
+                                HashMap<String,String> temp = new HashMap<>();
+                                temp.put("User", user.getUsername());
+                                temp.put("Character Name", character.getName());
+                                temp.put("Class", character.getCharacterClass());
+                                temp.put("Level", Integer.toString(character.getLevel()));
+                                list.add(temp);
+                            }
+                        }
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    list.clear();
+                }
+            });
+            SimpleAdapter adapter = new SimpleAdapter(this,
+                    list,
+                    R.layout.list_character_select,
+                    new String[] {"User","Character Name", "Class", "Level"},
+                    new int[] {R.id.list_user,R.id.list_character_name, R.id.list_class, R.id.list_level});
+            characterList.setAdapter(adapter);
+        } else {
+            list.clear();
         }
-         */
-        if (s == null){
-            //#NoFilter
-        }
-        else{
-            //#filtered
-        }
-        SimpleAdapter adapter = new SimpleAdapter(this,
-                list,
-                R.layout.list_character_select,
-                new String[] {"User","Character Name", "Class", "Level"},
-                new int[] {R.id.list_user,R.id.list_character_name, R.id.list_class, R.id.list_level});
-        //characterList.setAdapter(adapter);
+
     }
 
 }

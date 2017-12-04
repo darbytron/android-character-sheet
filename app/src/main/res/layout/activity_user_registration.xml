@@ -30,12 +30,5 @@
         android:textSize="30sp"
         android:text="@string/register"
         />
-    <fragment
-        android:name="com.tylerdarby.charactersheet.fragments.BottomNavigationFragment"
-        android:id="@+id/bottom_navigation_fragment"
-        android:layout_alignParentBottom="true"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        />
 
 </RelativeLayout>

@@ -65,9 +65,9 @@ public class BottomNavigationFragment extends Fragment{
                             case R.id.action_home:
                                 startActivity(new Intent(getActivity(), MainActivity.class));
                                 break;
-                            case R.id.action_new_user:
-                                startActivity(new Intent(getActivity(), UserRegistration.class));
-                                break;
+//                            case R.id.action_new_user:
+//                                startActivity(new Intent(getActivity(), UserRegistration.class));
+//                                break;
                             case R.id.action_search:
                                 //TODO: search activity
                                 startActivity(new Intent(getActivity(), CharacterSelect.class));
