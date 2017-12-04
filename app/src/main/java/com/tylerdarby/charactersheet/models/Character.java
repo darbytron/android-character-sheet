@@ -33,11 +33,11 @@ public class Character {
     private String experiencePoints;
     private String groupName;
     private int initiative;
-    private String proficiencies;
+    private List<Proficiencies> proficiencies;
     private int speed;
     private List<Spell> spells;
     private int vision;
-    private String notes;
+    private List<String> history;
 
     public Character() {
         armorClass = 0;
@@ -54,11 +54,11 @@ public class Character {
         experiencePoints = "";
         groupName = "";
         initiative = 0;
-        proficiencies = "";
+        proficiencies = new ArrayList<>();
         speed = 0;
         spells = new ArrayList<>();
         vision = 0;
-        notes = "";
+        history = new ArrayList<>();
     }
 
     public String getId() {
@@ -178,11 +178,11 @@ public class Character {
         this.initiative = initiative;
     }
 
-    public String getProficiencies() {
+    public List<Proficiencies> getProficiencies() {
         return proficiencies;
     }
 
-    public void setProficiencies(String proficiencies) {
+    public void setProficiencies(List<Proficiencies> proficiencies) {
         this.proficiencies = proficiencies;
     }
 
@@ -210,12 +210,12 @@ public class Character {
         this.vision = vision;
     }
 
-    public String getNotes() {
-        return notes;
+    public List<String> getHistory() {
+        return history;
     }
 
-    public void setNotes(String notes) {
-        this.notes = notes;
+    public void setHistory(List<String> history) {
+        this.history = history;
     }
 
     @Exclude
@@ -240,7 +240,7 @@ public class Character {
         result.put("speed", speed);
         result.put("spells", spells);
         result.put("vision", vision);
-        result.put("notes", notes);
+        result.put("history", history);
         return result;
     }
 }
