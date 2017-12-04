@@ -1,7 +1,5 @@
 package com.tylerdarby.charactersheet.activities;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -14,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+
 import com.tylerdarby.charactersheet.R;
 import com.tylerdarby.charactersheet.fragments.CharacterListFragment;
 import com.tylerdarby.charactersheet.utils.AppConstants;
@@ -98,15 +97,3 @@ public class MainActivity extends AppCompatActivity{
     }
 
 }
-
-//    // Create new fragment and transaction
-//    Fragment newFragment = new ExampleFragment();
-//    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//
-//// Replace whatever is in the fragment_container view with this fragment,
-//// and add the transaction to the back stack
-//transaction.replace(R.id.fragment_container, newFragment);
-//        transaction.addToBackStack(null);
-//
-//// Commit the transaction
-//        transaction.commit();

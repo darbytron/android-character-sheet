@@ -4,14 +4,11 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-
 import com.tylerdarby.charactersheet.R;
 import com.tylerdarby.charactersheet.models.Skill;
 import com.tylerdarby.charactersheet.models.SkillListAdapter;
-
 import java.util.ArrayList;
 import java.util.List;
 

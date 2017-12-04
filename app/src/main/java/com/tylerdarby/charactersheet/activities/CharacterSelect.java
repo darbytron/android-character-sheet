@@ -1,7 +1,6 @@
 package com.tylerdarby.charactersheet.activities;
 
 import android.os.Bundle;
-
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -9,8 +8,6 @@ import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.SimpleAdapter;
-
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -18,12 +15,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.tylerdarby.charactersheet.R;
-import com.tylerdarby.charactersheet.models.User;
 import com.tylerdarby.charactersheet.models.Character;
-
+import com.tylerdarby.charactersheet.models.User;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  * Created by Xilador on 11/28/2017.
@@ -32,7 +27,6 @@ import java.util.List;
 public class CharacterSelect extends AppCompatActivity {
 
     ListView characterList;
-    SimpleAdapter adapter;
     ArrayList<HashMap<String, String>> list;
 
     @Override
