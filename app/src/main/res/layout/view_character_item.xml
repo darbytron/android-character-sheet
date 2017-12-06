@@ -1,9 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/label"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:padding="10dp"
-    android:textSize="16sp"
-    android:textStyle="bold" >
-</TextView>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:id="@+id/topRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/character_name"
+            android:textSize="24sp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/character_class"
+            android:textSize="24sp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:layout_alignParentEnd="true"/>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_below="@id/topRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/character_exp"
+            android:textSize="16sp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/character_level"
+            android:textSize="16sp"
+            android:layout_alignParentEnd="true"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            />
+    </RelativeLayout>
+
+</RelativeLayout>

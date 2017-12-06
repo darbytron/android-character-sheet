@@ -17,6 +17,8 @@ import com.tylerdarby.charactersheet.models.Character;
 import com.tylerdarby.charactersheet.utils.AppConstants;
 import com.tylerdarby.charactersheet.utils.DataManager;
 
+import java.util.Locale;
+
 public class CharacterEditDisplayActivity extends AppCompatActivity {
 
     // Declare the fields
@@ -27,6 +29,16 @@ public class CharacterEditDisplayActivity extends AppCompatActivity {
     private EditText characterBackgroundEditText;
     private EditText characterAlignmentEditText;
     private EditText characterLevelEditText;
+    private EditText characterStrengthEditText;
+    private EditText characterConstitutionEditText;
+    private EditText characterDexterityEditText;
+    private EditText characterIntelligenceEditText;
+    private EditText characterWisdomEditText;
+    private EditText characterCharismaEditText;
+    private EditText characterArmorClassEditText;
+    private EditText characterSpeedEditText;
+    private EditText characterInitiativeEditText;
+    private EditText characterVisionEditText;
     private Character character;
     private SharedPreferences pref;
 
@@ -44,6 +56,7 @@ public class CharacterEditDisplayActivity extends AppCompatActivity {
         setContentView(R.layout.activity_character_display_edit);
 
         // Initialize the views
+
         characterNameEditText = (EditText) findViewById(R.id.characterNameEditText);
         characterRaceEditText = (EditText) findViewById(R.id.characterRaceEditText);
         characterClassEditText = (EditText) findViewById(R.id.characterClassEditText);
@@ -51,6 +64,20 @@ public class CharacterEditDisplayActivity extends AppCompatActivity {
         characterBackgroundEditText = (EditText) findViewById(R.id.characterBackgroundEditText);
         characterAlignmentEditText = (EditText) findViewById(R.id.characterAlignmentEditText);
         characterLevelEditText = (EditText) findViewById(R.id.characterLevelEditText);
+
+        characterStrengthEditText = findViewById(R.id.characterStrengthEditText);
+        characterConstitutionEditText = findViewById(R.id.characterConstitutionEditText);
+        characterDexterityEditText = findViewById(R.id.characterDexterityEditText);
+        characterIntelligenceEditText = findViewById(R.id.characterIntelligenceEditText);
+        characterWisdomEditText = findViewById(R.id.characterWisdomEditText);
+        characterCharismaEditText = findViewById(R.id.characterCharismaEditText);
+        characterArmorClassEditText = findViewById(R.id.characterArmorClassEditText);
+        characterSpeedEditText = findViewById(R.id.characterSpeedEditText);
+
+        characterInitiativeEditText = findViewById(R.id.characterInitiativeEditText);
+        characterVisionEditText = findViewById(R.id.characterVisionEditText);
+
+
         Button saveButton = findViewById(R.id.saveButton);
 
         // Create the character
@@ -62,14 +89,23 @@ public class CharacterEditDisplayActivity extends AppCompatActivity {
             // Populate the views
             characterNameEditText.setText(character.getName());
             characterRaceEditText.setText(character.getRace());
-            characterClassEditText.setText(character.getCharacterClass()); //getCharacterClass
+            characterClassEditText.setText(character.getCharacterClass());
             characterExperienceEditText.setText(character.getExperiencePoints());
             characterBackgroundEditText.setText(character.getBackground());
-            characterLevelEditText.setText(character.getLevel());
-            //TODO: Finish character prefill
+            characterAlignmentEditText.setText(character.getAlignment());
+            characterLevelEditText.setText(String.format(Locale.getDefault(), "%d", character.getLevel()));
+            characterStrengthEditText.setText(String.format(Locale.getDefault(), "%d", character.getStats().getStrength()));
+            characterConstitutionEditText.setText(String.format(Locale.getDefault(), "%d", character.getStats().getConstitution()));
+            characterDexterityEditText.setText(String.format(Locale.getDefault(), "%d", character.getStats().getDexterity()));
+            characterIntelligenceEditText.setText(String.format(Locale.getDefault(), "%d", character.getStats().getIntelligence()));
+            characterWisdomEditText.setText(String.format(Locale.getDefault(), "%d", character.getStats().getWisdom()));
+            characterCharismaEditText.setText(String.format(Locale.getDefault(), "%d", character.getStats().getCharisma()));
+            characterArmorClassEditText.setText(String.format(Locale.getDefault(), "%d", character.getArmorClass()));
+            characterSpeedEditText.setText(String.format(Locale.getDefault(), "%d", character.getSpeed()));
+            characterInitiativeEditText.setText(String.format(Locale.getDefault(), "%d", character.getInitiative()));
+            characterVisionEditText.setText(String.format(Locale.getDefault(), "%d", character.getVision()));
+
         }
-
-
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,15 +113,29 @@ public class CharacterEditDisplayActivity extends AppCompatActivity {
                 DataManager dataManager = DataManager.getDataManager();
                 setValues();
                 dataManager.saveCharacter(character);
-                //TODO: Enter Toast
                 finish();
             }
         });
-
-
     }
 
     private void setValues() {
-        
+        character.setName(characterNameEditText.getText().toString());
+        character.setRace(characterRaceEditText.getText().toString());
+        character.setCharacterClass(characterClassEditText.getText().toString());
+        character.setExperiencePoints(characterExperienceEditText.getText().toString());
+        character.setBackground(characterBackgroundEditText.getText().toString());
+        character.setAlignment(characterAlignmentEditText.getText().toString());
+        character.setLevel(Integer.parseInt(characterLevelEditText.getText().toString()));
+        character.getStats().setStrength(Integer.parseInt(characterStrengthEditText.getText().toString()));
+        character.getStats().setConstitution(Integer.parseInt(characterConstitutionEditText.getText().toString()));
+        character.getStats().setDexterity(Integer.parseInt(characterDexterityEditText.getText().toString()));
+        character.getStats().setIntelligence(Integer.parseInt(characterIntelligenceEditText.getText().toString()));
+        character.getStats().setWisdom(Integer.parseInt(characterWisdomEditText.getText().toString()));
+        character.getStats().setCharisma(Integer.parseInt(characterCharismaEditText.getText().toString()));
+
+        character.setArmorClass(characterArmorClassEditText.getText().toString().isEmpty() ? 0 : Integer.parseInt(characterArmorClassEditText.getText().toString()));
+        character.setSpeed(characterSpeedEditText.getText().toString().isEmpty() ? 0 : Integer.parseInt(characterSpeedEditText.getText().toString()));
+        character.setInitiative(characterInitiativeEditText.getText().toString().isEmpty() ? 0 : Integer.parseInt(characterInitiativeEditText.getText().toString()));
+        character.setVision(characterVisionEditText.getText().toString().isEmpty() ? 0 : Integer.parseInt(characterVisionEditText.getText().toString()));
     }
 }

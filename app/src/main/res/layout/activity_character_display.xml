@@ -423,56 +423,6 @@
 
         </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/characterSkillsLabel"
-            android:text="@string/characterFeatsTraits"
-            android:textSize="@dimen/titleTextSize"
-            android:background="@drawable/bottom_border"
-            android:paddingTop="@dimen/topPadding"
-            />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/characterProficienciesLabel"
-            android:text="@string/characterProficiencies"
-            android:textSize="@dimen/titleTextSize"
-            android:background="@drawable/bottom_border"
-            android:paddingTop="@dimen/topPadding"
-            />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/characterSpellsLabel"
-            android:text="@string/characterSpells"
-            android:textSize="@dimen/titleTextSize"
-            android:background="@drawable/bottom_border"
-            android:paddingTop="@dimen/topPadding"
-            />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/characterInventoryLabel"
-            android:text="@string/characterInventory"
-            android:textSize="@dimen/titleTextSize"
-            android:background="@drawable/bottom_border"
-            android:paddingTop="@dimen/topPadding"
-            />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/characterHistoryLabel"
-            android:text="@string/characterHistory"
-            android:textSize="@dimen/titleTextSize"
-            android:background="@drawable/bottom_border"
-            android:paddingTop="@dimen/topPadding"
-            />
-
     </LinearLayout>
 
 </ScrollView>

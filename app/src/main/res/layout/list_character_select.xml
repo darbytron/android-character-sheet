@@ -19,12 +19,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/list_user"
+            android:id="@+id/list_class"
             android:textSize="24sp"
-            android:layout_alignParentEnd="true"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
-            />
+            android:layout_alignParentEnd="true"/>
 
     </RelativeLayout>
     <RelativeLayout
@@ -35,10 +34,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/list_class"
+            android:id="@+id/list_user"
             android:textSize="16sp"
             android:paddingStart="10dp"
-            android:paddingEnd="10dp"/>
+            android:paddingEnd="10dp"
+            />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

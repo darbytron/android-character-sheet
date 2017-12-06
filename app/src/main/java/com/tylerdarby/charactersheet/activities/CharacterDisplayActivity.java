@@ -20,6 +20,8 @@ import com.tylerdarby.charactersheet.utils.DataManager;
 
 import org.w3c.dom.Text;
 
+import java.util.Locale;
+
 public class CharacterDisplayActivity extends AppCompatActivity {
 
     // Declare the fields
@@ -82,31 +84,28 @@ public class CharacterDisplayActivity extends AppCompatActivity {
         characterSpeedView = (TextView) findViewById(R.id.characterSpeedView);
         characterInitiativeView = (TextView) findViewById(R.id.characterInitiativeView);
         characterVisionView = (TextView) findViewById(R.id.characterVisionView);
-        characterSkillsLabel = (TextView) findViewById(R.id.characterSkillsLabel);
-        characterProficienciesLabel = (TextView) findViewById(R.id.characterProficienciesLabel);
-        characterSpellsLabel = (TextView) findViewById(R.id.characterSpellsLabel);
-        characterInventoryLabel = (TextView) findViewById(R.id.characterInventoryLabel);
-        characterHistoryLabel = (TextView) findViewById(R.id.characterHistoryLabel);
+
+
 
 
         // Populate the views
         characterNameView.setText(character.getName());
         characterRaceView.setText(character.getRace());
         characterBackgroundView.setText(character.getBackground());
-        characterLevelView.setText(character.getLevel());
+        characterLevelView.setText(String.format(Locale.getDefault(), "%d", character.getLevel()));
         characterExperienceView.setText(character.getExperiencePoints());
         characterClassView.setText(character.getCharacterClass());
         characterAlignmentView.setText(character.getAlignment());
-        characterStrView.setText(character.getStats().getStrength());
-        characterConView.setText(character.getStats().getConstitution());
-        characterDexView.setText(character.getStats().getDexterity());
-        characterIntView.setText(character.getStats().getIntelligence());
-        characterWisView.setText(character.getStats().getWisdom());
-        characterChaView.setText(character.getStats().getStrength());
-        characterArmorClassView.setText(character.getArmorClass());
-        characterSpeedView.setText(character.getSpeed());
-        characterInitiativeView.setText(character.getInitiative());
-        characterVisionView.setText(character.getArmorClass());
+        characterStrView.setText(String.format(Locale.getDefault(), "%d", character.getStats().getStrength()));
+        characterConView.setText(String.format(Locale.getDefault(), "%d", character.getStats().getConstitution()));
+        characterDexView.setText(String.format(Locale.getDefault(), "%d", character.getStats().getDexterity()));
+        characterIntView.setText(String.format(Locale.getDefault(), "%d", character.getStats().getIntelligence()));
+        characterWisView.setText(String.format(Locale.getDefault(), "%d", character.getStats().getWisdom()));
+        characterChaView.setText(String.format(Locale.getDefault(), "%d", character.getStats().getCharisma()));
+        characterArmorClassView.setText(String.format(Locale.getDefault(), "%d", character.getArmorClass()));
+        characterSpeedView.setText(String.format(Locale.getDefault(), "%d", character.getSpeed()));
+        characterInitiativeView.setText(String.format(Locale.getDefault(), "%d", character.getInitiative()));
+        characterVisionView.setText(String.format(Locale.getDefault(), "%d", character.getVision()));
 
 
 
@@ -135,9 +134,7 @@ public class CharacterDisplayActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.character_display_activity_menu, menu);
         MenuItem editItem = menu.findItem(R.id.editCharacter);
 
-        if (showMenu == false) {
-            editItem.setVisible(false);
-        }
+        editItem.setVisible(showMenu);
 
         return true;
     }
