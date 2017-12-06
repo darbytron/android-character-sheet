@@ -16,15 +16,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.CharacterDisplayActivity"
+        <activity android:name=".activities.CharacterEditDisplayActivity"
             android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".activities.CharacterEditDisplayActivity" />
-        <activity android:name=".activities.UserRegistration" />
-        <activity android:name=".activities.DiceRoller" />
+        <activity android:name=".activities.CharacterDisplayActivity" />
+        <activity android:name=".activities.UserRegistration"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".activities.DiceRoller"
+            android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".activities.SettingsActivity"/>
         <activity android:name=".activities.FeatsAndStrengths" />
         <activity android:name=".activities.Spells" />
-        <activity android:name=".activities.CharacterSelect" />
+        <activity android:name=".activities.CharacterSelect"
+            android:windowSoftInputMode="adjustPan"/>
     </application>
 
 </manifest>

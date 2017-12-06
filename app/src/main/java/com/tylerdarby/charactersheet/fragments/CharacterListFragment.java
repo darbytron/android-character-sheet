@@ -41,7 +41,6 @@ public class CharacterListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_character_list, container, false);
         ListView listView = view.findViewById(R.id.characterList);
-        Button addCharacterButton = view.findViewById(R.id.addCharacterButton);
         CharacterItemAdapter adapter = new CharacterItemAdapter(getActivity(), R.layout.view_character_item);
         listView.setAdapter(adapter);
 
@@ -61,12 +60,6 @@ public class CharacterListFragment extends Fragment {
             }
         });
 
-        addCharacterButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getActivity(), CharacterEditDisplayActivity.class));
-            }
-        });
 
         return view;
     }

@@ -1,6 +1,7 @@
 package com.tylerdarby.charactersheet.activities;
 
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -45,6 +46,11 @@ public class CharacterSelect extends AppCompatActivity {
         inflater.inflate(R.menu.menu_items,menu);
         MenuItem item = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) item.getActionView();
+        searchView.setFocusable(true);
+        searchView.setFocusableInTouchMode(true);
+        searchView.requestFocus();
+        searchView.requestFocusFromTouch();
+        searchView.setIconified(false);
         searchView.setQueryHint("Search for a user or character...");
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -63,10 +69,9 @@ public class CharacterSelect extends AppCompatActivity {
 
     //send null instead to not filter it
     public void getInformation(String s){
-
+        list.clear();
         if(s != null && !s.isEmpty()) {
             final String queryString = s.toLowerCase();
-            list.clear();
             final DatabaseReference db = FirebaseDatabase.getInstance().getReference("users");
             Query queryRef = db.orderByChild("characters/name");
             queryRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -96,8 +101,6 @@ public class CharacterSelect extends AppCompatActivity {
                 }
             });
 
-        } else {
-            list.clear();
         }
 
     }

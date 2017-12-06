@@ -27,83 +27,88 @@
             android:textStyle="bold"
             />
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/characterNameLabel"
-                android:layout_centerVertical="true"
                 android:text="@string/characterName"
                 android:textSize="@dimen/informationTextSize"
-                android:layout_marginTop="@dimen/topPadding"/>
+                android:layout_marginTop="@dimen/topPadding"
+                android:layout_weight="1"
+                android:labelFor="@id/characterNameEditText"
+                />
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
                 android:id="@+id/characterNameEditText"
                 android:text="@string/defaultDataString"
+                android:inputType="text"
                 android:textSize="@dimen/informationTextSize"
-                android:layout_marginTop="@dimen/topPadding"/>
+                android:layout_marginTop="@dimen/topPadding"
+                android:layout_weight="3"/>
 
-        </RelativeLayout>
+        </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_centerVertical="true"
-                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/characterRaceLabel"
                 android:text="@string/characterRace"
                 android:textSize="@dimen/informationTextSize"
-                android:layout_marginTop="@dimen/topPadding"/>
+                android:layout_marginTop="@dimen/topPadding"
+                android:labelFor="@id/characterExperienceEditText"/>
 
             <EditText
-                android:layout_centerVertical="true"
-                android:layout_alignParentEnd="true"
+                android:layout_weight="3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/characterRaceEditText"
+                android:inputType="text"
                 android:text="@string/defaultDataString"
                 android:textSize="@dimen/informationTextSize"
-                android:layout_marginTop="@dimen/topPadding"/>
+                android:layout_marginTop="@dimen/topPadding"
+                />
 
-        </RelativeLayout>
+        </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <TextView
-                android:layout_centerVertical="true"
-                android:layout_width="wrap_content"
+                android:layout_weight="2"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/characterBackgroundLabel"
                 android:text="@string/characterBackground"
                 android:textSize="@dimen/informationTextSize"
-                android:layout_marginTop="@dimen/topPadding"/>
+                android:layout_marginTop="@dimen/topPadding"
+                android:labelFor="@id/characterBackgroundEditText"/>
 
             <EditText
-                android:layout_centerVertical="true"
-                android:layout_alignParentEnd="true"
+                android:layout_weight="3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:inputType="text"
                 android:id="@+id/characterBackgroundEditText"
                 android:text="@string/defaultDataString"
                 android:textSize="@dimen/informationTextSize"
                 android:layout_marginTop="@dimen/topPadding"/>
 
-        </RelativeLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -111,17 +116,21 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/characterLevelLabel"
                 android:text="@string/characterLevel"
                 android:textSize="@dimen/informationTextSize"
-                android:layout_marginTop="@dimen/topPadding"/>
+                android:layout_marginTop="@dimen/topPadding"
+                android:labelFor="@id/characterLevelEditText"/>
 
             <EditText
+                android:layout_weight="3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/characterLevelEditText"
+                android:inputType="number"
                 android:text="@string/defaultDataString"
                 android:textSize="@dimen/informationTextSize"
                 android:layout_marginTop="@dimen/topPadding"/>
@@ -134,20 +143,24 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_weight="2"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/characterExperienceLabel"
                 android:text="@string/characterExperience"
                 android:textSize="@dimen/informationTextSize"
-                android:layout_marginTop="@dimen/topPadding"/>
+                android:layout_marginTop="@dimen/topPadding"
+                android:labelFor="@id/characterExperienceEditText"/>
 
             <EditText
+                android:layout_weight="3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/characterExperienceEditText"
                 android:text="@string/defaultDataString"
                 android:textSize="@dimen/informationTextSize"
-                android:layout_marginTop="@dimen/topPadding"/>
+                android:layout_marginTop="@dimen/topPadding"
+                android:inputType="number"/>
 
         </LinearLayout>
 
@@ -157,7 +170,9 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:labelFor="@id/characterClassEditText"
                 android:layout_height="wrap_content"
                 android:id="@+id/characterClassLabel"
                 android:text="@string/characterClass"
@@ -165,6 +180,8 @@
                 android:layout_marginTop="@dimen/topPadding"/>
 
             <EditText
+                android:layout_weight="3"
+                android:inputType="text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/characterClassEditText"
@@ -180,7 +197,9 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:labelFor="@id/characterAlignmentEditText"
+                android:layout_weight="2"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/characterAlignmentLabel"
                 android:text="@string/characterAlignment"
@@ -188,9 +207,11 @@
                 android:layout_marginTop="@dimen/topPadding"/>
 
             <EditText
+                android:layout_weight="3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/characterAlignmentEditText"
+                android:inputType="text"
                 android:text="@string/defaultDataString"
                 android:textSize="@dimen/informationTextSize"
                 android:layout_marginTop="@dimen/topPadding"/>
@@ -228,7 +249,8 @@
                 android:text="@string/defaultDataString"
                 android:textSize="@dimen/informationTextSize"
                 android:layout_marginTop="@dimen/topPadding"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:inputType="number"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -246,7 +268,8 @@
                 android:text="@string/defaultDataString"
                 android:textSize="@dimen/informationTextSize"
                 android:layout_marginTop="@dimen/topPadding"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:inputType="number"/>
 
         </LinearLayout>
 
@@ -271,7 +294,8 @@
                 android:text="@string/defaultDataString"
                 android:textSize="@dimen/informationTextSize"
                 android:layout_marginTop="@dimen/topPadding"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:inputType="number"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -289,7 +313,8 @@
                 android:text="@string/defaultDataString"
                 android:textSize="@dimen/informationTextSize"
                 android:layout_marginTop="@dimen/topPadding"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:inputType="number"/>
 
         </LinearLayout>
 
@@ -435,12 +460,6 @@
     </LinearLayout>
 
 </ScrollView>
-    <Button
-        android:id="@+id/saveButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/save_character"
-        android:layout_above="@id/bottom_navigation_fragment"/>
     <fragment
         android:name="com.tylerdarby.charactersheet.fragments.BottomNavigationFragment"
         android:id="@+id/bottom_navigation_fragment"

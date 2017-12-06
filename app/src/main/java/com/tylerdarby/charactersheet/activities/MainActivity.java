@@ -8,9 +8,11 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.tylerdarby.charactersheet.R;
@@ -67,6 +69,13 @@ public class MainActivity extends AppCompatActivity{
             dataManager.getData(username);
         }
         updateData();
+        FloatingActionButton fab = findViewById(R.id.addCharacterButton);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), CharacterEditDisplayActivity.class));
+            }
+        });
     }
 
     @Override

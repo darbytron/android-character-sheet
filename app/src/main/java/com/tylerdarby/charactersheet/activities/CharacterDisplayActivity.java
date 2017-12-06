@@ -48,6 +48,7 @@ public class CharacterDisplayActivity extends AppCompatActivity {
     private TextView characterInventoryLabel;
     private TextView characterHistoryLabel;
     private SharedPreferences pref;
+    private Character character;
     private boolean showMenu = true;
 
     @Override
@@ -64,7 +65,7 @@ public class CharacterDisplayActivity extends AppCompatActivity {
 
         // Create the character
         String id = getIntent().getStringExtra(AppConstants.CHARACTER_ID);
-        Character character = DataManager.getDataManager().getCharacter(id);
+        character = DataManager.getDataManager().getCharacter(id);
 
         // Initialize the views
         characterNameView = (TextView) findViewById(R.id.characterNameView);
@@ -109,23 +110,23 @@ public class CharacterDisplayActivity extends AppCompatActivity {
 
 
 
-        characterSkillsLabel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(CharacterDisplayActivity.this, FeatsAndStrengths.class);
-                startActivity(intent);
-            }
-        });
-
-
-
-        characterSpellsLabel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(CharacterDisplayActivity.this, Spells.class);
-                startActivity(intent);
-            }
-        });
+//        characterSkillsLabel.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(CharacterDisplayActivity.this, FeatsAndStrengths.class);
+//                startActivity(intent);
+//            }
+//        });
+//
+//
+//
+//        characterSpellsLabel.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(CharacterDisplayActivity.this, Spells.class);
+//                startActivity(intent);
+//            }
+//        });
 
     }
 
@@ -135,6 +136,17 @@ public class CharacterDisplayActivity extends AppCompatActivity {
         MenuItem editItem = menu.findItem(R.id.editCharacter);
 
         editItem.setVisible(showMenu);
+
+        editItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                String characterId = character.getId();
+                Intent intent = new Intent(getApplicationContext(), CharacterEditDisplayActivity.class);
+                intent.putExtra(AppConstants.CHARACTER_ID, characterId);
+                startActivity(intent);
+                return false;
+            }
+        });
 
         return true;
     }

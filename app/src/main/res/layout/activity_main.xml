@@ -23,9 +23,10 @@
             android:id="@+id/characterLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="24sp"
+            android:textSize="32sp"
             android:layout_below="@id/usernameLabel"
-            android:text="@string/characters"/>
+            android:text="@string/characters"
+            android:layout_marginBottom="25dp"/>
 
         <FrameLayout
             android:id="@+id/main_fragment"
@@ -34,6 +35,23 @@
             android:layout_below="@id/characterLabel"
             />
 
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/main_content">
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/addCharacterButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_margin="16dp"
+            android:clickable="true"
+            android:src="@drawable/ic_add_white_24dp"
+            android:focusable="false"
+            />
     </RelativeLayout>
     <fragment
         android:name="com.tylerdarby.charactersheet.fragments.BottomNavigationFragment"

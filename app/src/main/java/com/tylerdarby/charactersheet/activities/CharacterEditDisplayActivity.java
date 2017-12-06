@@ -6,6 +6,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -77,9 +79,6 @@ public class CharacterEditDisplayActivity extends AppCompatActivity {
         characterInitiativeEditText = findViewById(R.id.characterInitiativeEditText);
         characterVisionEditText = findViewById(R.id.characterVisionEditText);
 
-
-        Button saveButton = findViewById(R.id.saveButton);
-
         // Create the character
         String id = getIntent().getStringExtra(AppConstants.CHARACTER_ID);
         if(id == null) {
@@ -107,16 +106,8 @@ public class CharacterEditDisplayActivity extends AppCompatActivity {
 
         }
 
-        saveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DataManager dataManager = DataManager.getDataManager();
-                setValues();
-                dataManager.saveCharacter(character);
-                finish();
-            }
-        });
     }
+
 
     private void setValues() {
         character.setName(characterNameEditText.getText().toString());
@@ -137,5 +128,23 @@ public class CharacterEditDisplayActivity extends AppCompatActivity {
         character.setSpeed(characterSpeedEditText.getText().toString().isEmpty() ? 0 : Integer.parseInt(characterSpeedEditText.getText().toString()));
         character.setInitiative(characterInitiativeEditText.getText().toString().isEmpty() ? 0 : Integer.parseInt(characterInitiativeEditText.getText().toString()));
         character.setVision(characterVisionEditText.getText().toString().isEmpty() ? 0 : Integer.parseInt(characterVisionEditText.getText().toString()));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.character_edit_activity_menu, menu);
+        MenuItem editItem = menu.findItem(R.id.saveCharacter);
+
+        editItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                DataManager dataManager = DataManager.getDataManager();
+                setValues();
+                dataManager.saveCharacter(character);
+                finish();
+                return false;
+            }
+        });
+        return true;
     }
 }

@@ -3,6 +3,6 @@
     <dimen name="textSize">30sp</dimen>
     <dimen name="bottomPadding">10dp</dimen>
     <dimen name="titleTextSize">30sp</dimen>
-    <dimen name="informationTextSize">20sp</dimen>
+    <dimen name="informationTextSize">18sp</dimen>
     <dimen name="topPadding">5dp</dimen>
 </resources>
