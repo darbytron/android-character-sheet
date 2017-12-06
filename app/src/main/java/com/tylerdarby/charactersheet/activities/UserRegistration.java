@@ -15,7 +15,6 @@ import com.tylerdarby.charactersheet.utils.DataManager;
 
 public class UserRegistration extends AppCompatActivity {
     private EditText usernameText;
-    private Button registerButton;
     private SharedPreferences pref;
 
     @Override
@@ -30,8 +29,8 @@ public class UserRegistration extends AppCompatActivity {
         }
         setContentView(R.layout.activity_user_registration);
 
-        usernameText = (EditText) findViewById(R.id.usernameField);
-        registerButton = (Button) findViewById(R.id.registerButton);
+        usernameText = findViewById(R.id.usernameField);
+        Button registerButton = findViewById(R.id.registerButton);
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -6,11 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-
 import com.tylerdarby.charactersheet.R;
 import com.tylerdarby.charactersheet.models.Spell;
 import com.tylerdarby.charactersheet.models.SpellListAdapter;
-
 import java.util.ArrayList;
 import java.util.List;
 

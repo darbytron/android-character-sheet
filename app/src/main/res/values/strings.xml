@@ -63,11 +63,13 @@
     <string name="characterProficiencies">Proficiencies</string>
     <string name="characterSpells">Spells</string>
     <string name="characterInventory">Inventory</string>
-
-    <string name="menu_settings">settings</string>
+    <string name="menu_settings">Settings</string>
     <string name="username">Username</string>
     <string name="characters">Characters</string>
     <string name="add_character">Add Character</string>
     <string name="save_character">Save Character</string>
-    <string name="search_name">Search...</string>
+    <string name="editCharacter">Edit Values</string>
+    <string name="characterHistory">My Journey</string>
+    <string name="search_name">Search…</string>
+    <string name="sing_in">Sing in</string>
 </resources>

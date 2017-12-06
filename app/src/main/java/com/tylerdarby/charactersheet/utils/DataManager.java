@@ -84,7 +84,6 @@ public class DataManager extends Application{
     }
 
     public Collection<Character> getCharacters() {
-
         return getUser().getCharacters().values();
     }
 

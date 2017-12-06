@@ -1,16 +1,12 @@
 package com.tylerdarby.charactersheet.activities;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.MenuItem;
+import android.preference.PreferenceManager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
@@ -19,7 +15,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.tylerdarby.charactersheet.R;
-import com.tylerdarby.charactersheet.helpers.BottomNavigationViewHelper;
 import com.tylerdarby.charactersheet.utils.ShakeDetector;
 
 public class DiceRoller extends AppCompatActivity implements OnClickListener {
@@ -88,9 +83,7 @@ public class DiceRoller extends AppCompatActivity implements OnClickListener {
 
             @Override
             public void onShake(int count) {
-
                 diceRoll();
-
             }
         });
 

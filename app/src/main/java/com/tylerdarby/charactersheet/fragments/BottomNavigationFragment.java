@@ -56,18 +56,18 @@ public class BottomNavigationFragment extends Fragment{
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         switch (item.getItemId()) {
-                            case R.id.action_new_char:
-                                startActivity(new Intent(getActivity(), CharacterDisplayActivity.class));
-                                break;
+//                            case R.id.action_new_char:
+//                                startActivity(new Intent(getActivity(), CharacterEditDisplayActivity.class));
+//                                break;
                             case R.id.action_dice:
                                 startActivity(new Intent(getActivity(), DiceRoller.class));
                                 break;
                             case R.id.action_home:
                                 startActivity(new Intent(getActivity(), MainActivity.class));
                                 break;
-                            case R.id.action_new_user:
-                                startActivity(new Intent(getActivity(), UserRegistration.class));
-                                break;
+//                            case R.id.action_new_user:
+//                                startActivity(new Intent(getActivity(), UserRegistration.class));
+//                                break;
                             case R.id.action_search:
                                 //TODO: search activity
                                 startActivity(new Intent(getActivity(), CharacterSelect.class));

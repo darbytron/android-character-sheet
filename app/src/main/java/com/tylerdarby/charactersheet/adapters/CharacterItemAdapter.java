@@ -12,6 +12,8 @@ import android.widget.TextView;
 import com.tylerdarby.charactersheet.R;
 import com.tylerdarby.charactersheet.models.Character;
 
+import java.util.Locale;
+
 /**
  * Created by tdarby on 11/26/17.
  */
@@ -37,8 +39,16 @@ public class CharacterItemAdapter extends ArrayAdapter<Character>{
             v = convertView;
         }
 
-        TextView textView = v.findViewById(R.id.label);
-        textView.setText(character.getName());
+        TextView charName = v.findViewById(R.id.character_name);
+        TextView charClass = v.findViewById(R.id.character_class);
+        TextView charExp = v.findViewById(R.id.character_exp);
+        TextView charLevel = v.findViewById(R.id.character_level);
+
+        charName.setText(character.getName());
+        charClass.setText(character.getCharacterClass());
+        charExp.setText(character.getExperiencePoints());
+        charLevel.setText(String.format(Locale.getDefault(), "lv %d", character.getLevel()));
+
         v.setTag(character.getId());
         //TODO: Make list prettier, add more character detail
         return v;
