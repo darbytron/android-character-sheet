@@ -188,6 +188,51 @@
 
         </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/characterHealthAndBuffsLabel"
+            android:text="@string/characterHealthAndBuffs"
+            android:textSize="@dimen/titleTextSize"
+            android:background="@drawable/bottom_border"
+            android:paddingTop="@dimen/topPadding"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/characterHealthLabel"
+                android:text="@string/characterHealth"
+                android:textSize="@dimen/informationTextSize"
+                android:layout_marginTop="@dimen/topPadding"
+                android:labelFor="@id/characterExperienceEditText"/>
+
+            <EditText
+                android:layout_weight="3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/characterHitPointsEditText"
+                android:text="@string/defaultDataString"
+                android:textSize="@dimen/informationTextSize"
+                android:layout_marginTop="@dimen/topPadding"
+                android:lines="5"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

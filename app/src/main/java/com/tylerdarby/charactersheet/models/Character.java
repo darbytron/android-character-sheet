@@ -61,6 +61,14 @@ public class Character {
         history = new ArrayList<>();
     }
 
+    public String getHealth() {
+        return health;
+    }
+
+    public void setHealth(String health) {
+        this.health = health;
+    }
+
     public String getId() {
         return id;
     }

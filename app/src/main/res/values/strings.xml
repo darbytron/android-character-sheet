@@ -41,7 +41,7 @@
     <string name="defaultDataString" />
     <string name="characterName">Name:</string>
     <string name="characterRace">Race:</string>
-    <string name="characterBackground">Background</string>
+    <string name="characterBackground">Background:</string>
     <string name="characterLevel">Level:</string>
     <string name="characterExperience">Experience:</string>
     <string name="characterClass">Class:</string>
@@ -73,4 +73,6 @@
     <string name="search_name">Search…</string>
     <string name="sing_in">Sing in</string>
     <string name="save">Save</string>
+    <string name="characterHealthAndBuffs">Character HP and Buffs</string>
+    <string name="characterHealth">Hit Points:</string>
 </resources>

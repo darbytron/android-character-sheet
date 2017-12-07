@@ -32,6 +32,7 @@ public class CharacterDisplayActivity extends AppCompatActivity {
     private TextView characterExperienceView;
     private TextView characterClassView;
     private TextView characterAlignmentView;
+    private EditText characterHitPoints;
     private TextView characterStrView;
     private TextView characterConView;
     private TextView characterDexView;
@@ -75,6 +76,7 @@ public class CharacterDisplayActivity extends AppCompatActivity {
         characterExperienceView = (TextView) findViewById(R.id.characterExperienceView);
         characterClassView = (TextView) findViewById(R.id.characterClassView);
         characterAlignmentView = (TextView) findViewById(R.id.characterAlignmentView);
+        characterHitPoints = (EditText) findViewById(R.id.characterHitPointsEditText);
         characterStrView = (TextView) findViewById(R.id.characterStrengthView);
         characterConView = (TextView) findViewById(R.id.characterConstitutionView);
         characterDexView = (TextView) findViewById(R.id.characterDexterityView);
@@ -90,23 +92,24 @@ public class CharacterDisplayActivity extends AppCompatActivity {
 
 
         // Populate the views
-        characterNameView.setText(character.getName());
-        characterRaceView.setText(character.getRace());
-        characterBackgroundView.setText(character.getBackground());
-        characterLevelView.setText(String.format(Locale.getDefault(), "%d", character.getLevel()));
-        characterExperienceView.setText(character.getExperiencePoints());
-        characterClassView.setText(character.getCharacterClass());
-        characterAlignmentView.setText(character.getAlignment());
-        characterStrView.setText(String.format(Locale.getDefault(), "%d", character.getStats().getStrength()));
-        characterConView.setText(String.format(Locale.getDefault(), "%d", character.getStats().getConstitution()));
-        characterDexView.setText(String.format(Locale.getDefault(), "%d", character.getStats().getDexterity()));
-        characterIntView.setText(String.format(Locale.getDefault(), "%d", character.getStats().getIntelligence()));
-        characterWisView.setText(String.format(Locale.getDefault(), "%d", character.getStats().getWisdom()));
-        characterChaView.setText(String.format(Locale.getDefault(), "%d", character.getStats().getCharisma()));
-        characterArmorClassView.setText(String.format(Locale.getDefault(), "%d", character.getArmorClass()));
-        characterSpeedView.setText(String.format(Locale.getDefault(), "%d", character.getSpeed()));
-        characterInitiativeView.setText(String.format(Locale.getDefault(), "%d", character.getInitiative()));
-        characterVisionView.setText(String.format(Locale.getDefault(), "%d", character.getVision()));
+        characterNameView.setText(" " + character.getName());
+        characterRaceView.setText(" " + character.getRace());
+        characterBackgroundView.setText(" " + character.getBackground());
+        characterLevelView.setText(" " + String.format(Locale.getDefault(), "%d", character.getLevel()));
+        characterExperienceView.setText(" " + character.getExperiencePoints());
+        characterClassView.setText(" " + character.getCharacterClass());
+        characterAlignmentView.setText(" " + character.getAlignment());
+        characterHitPoints.setText(character.getHealth());
+        characterStrView.setText(" " + String.format(Locale.getDefault(), "%d", character.getStats().getStrength()));
+        characterConView.setText(" " + String.format(Locale.getDefault(), "%d", character.getStats().getConstitution()));
+        characterDexView.setText(" " + String.format(Locale.getDefault(), "%d", character.getStats().getDexterity()));
+        characterIntView.setText(" " + String.format(Locale.getDefault(), "%d", character.getStats().getIntelligence()));
+        characterWisView.setText(" " + String.format(Locale.getDefault(), "%d", character.getStats().getWisdom()));
+        characterChaView.setText(" " + String.format(Locale.getDefault(), "%d", character.getStats().getCharisma()));
+        characterArmorClassView.setText(" " + String.format(Locale.getDefault(), "%d", character.getArmorClass()));
+        characterSpeedView.setText(" " + String.format(Locale.getDefault(), "%d", character.getSpeed()));
+        characterInitiativeView.setText(" " + String.format(Locale.getDefault(), "%d", character.getInitiative()));
+        characterVisionView.setText(" " + String.format(Locale.getDefault(), "%d", character.getVision()));
 
 
 

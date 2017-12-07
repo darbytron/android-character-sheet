@@ -31,6 +31,7 @@ public class CharacterEditDisplayActivity extends AppCompatActivity {
     private EditText characterBackgroundEditText;
     private EditText characterAlignmentEditText;
     private EditText characterLevelEditText;
+    private EditText characterHitPointsEditText;
     private EditText characterStrengthEditText;
     private EditText characterConstitutionEditText;
     private EditText characterDexterityEditText;
@@ -66,6 +67,7 @@ public class CharacterEditDisplayActivity extends AppCompatActivity {
         characterBackgroundEditText = (EditText) findViewById(R.id.characterBackgroundEditText);
         characterAlignmentEditText = (EditText) findViewById(R.id.characterAlignmentEditText);
         characterLevelEditText = (EditText) findViewById(R.id.characterLevelEditText);
+        characterHitPointsEditText = (EditText) findViewById(R.id.characterHitPointsEditText);
 
         characterStrengthEditText = findViewById(R.id.characterStrengthEditText);
         characterConstitutionEditText = findViewById(R.id.characterConstitutionEditText);
@@ -93,6 +95,7 @@ public class CharacterEditDisplayActivity extends AppCompatActivity {
             characterBackgroundEditText.setText(character.getBackground());
             characterAlignmentEditText.setText(character.getAlignment());
             characterLevelEditText.setText(String.format(Locale.getDefault(), "%d", character.getLevel()));
+            characterHitPointsEditText.setText(character.getHealth());
             characterStrengthEditText.setText(String.format(Locale.getDefault(), "%d", character.getStats().getStrength()));
             characterConstitutionEditText.setText(String.format(Locale.getDefault(), "%d", character.getStats().getConstitution()));
             characterDexterityEditText.setText(String.format(Locale.getDefault(), "%d", character.getStats().getDexterity()));
@@ -113,10 +116,10 @@ public class CharacterEditDisplayActivity extends AppCompatActivity {
         character.setName(characterNameEditText.getText().toString());
         character.setRace(characterRaceEditText.getText().toString());
         character.setCharacterClass(characterClassEditText.getText().toString());
-        character.setExperiencePoints(characterExperienceEditText.getText().toString());
         character.setBackground(characterBackgroundEditText.getText().toString());
         character.setAlignment(characterAlignmentEditText.getText().toString());
         character.setLevel(Integer.parseInt(characterLevelEditText.getText().toString()));
+        character.setHealth(characterHitPointsEditText.getText().toString());
         character.getStats().setStrength(Integer.parseInt(characterStrengthEditText.getText().toString()));
         character.getStats().setConstitution(Integer.parseInt(characterConstitutionEditText.getText().toString()));
         character.getStats().setDexterity(Integer.parseInt(characterDexterityEditText.getText().toString()));
