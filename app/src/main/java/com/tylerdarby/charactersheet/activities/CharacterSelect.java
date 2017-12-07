@@ -51,7 +51,7 @@ public class CharacterSelect extends AppCompatActivity {
         searchView.requestFocus();
         searchView.requestFocusFromTouch();
         searchView.setIconified(false);
-        searchView.setQueryHint("Search for a user or character...");
+        searchView.setQueryHint("Search for a character...");
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
@@ -81,7 +81,7 @@ public class CharacterSelect extends AppCompatActivity {
                         User user = childSnapshot.getValue(User.class);
                         if(user != null && user.getCharacters() != null) {
                             for(Character character : user.getCharacters().values()) {
-                                if(user.getUsername().toLowerCase().contains(queryString) || character.getName().toLowerCase().contains(queryString)) {
+                                if(character.getName().toLowerCase().contains(queryString)) {
                                     HashMap<String,String> temp = new HashMap<>();
                                     temp.put("User", user.getUsername());
                                     temp.put("Character Name", character.getName());
